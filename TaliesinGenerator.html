@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8">
+  <title>A Simple Character Generator for D&D</title>
+  <link rel="stylesheet" type="text/css" href="https://edwardtufte.github.io/tufte-css/tufte.css"/>
+ </head>
+
+ <body>
+     <h1>Your Character</h1>
+     <div id="copy">These are their strong traits:</div>
+     <p>Your traits/stats will go here.</p>
+     <p>Give your character a name:</p>
+     <input type="text" id="charname">
+     <button onclick="changeName()" value="">Update Name</button>
+ </body>
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+<script>
+    let stats = [' Tough', ' Alert', ' Nimble', ' Sneaky', ' Cunning', ' Noble', ' Learned'];
+    
+    document.getElementsByTagName('p')[0].innerText = _.sampleSize(stats, 2);
+
+    function changeName(){
+        document.getElementsByTagName('h1')[0].innerHTML = document.getElementById('charname').value;
+    }
+
+</script>
