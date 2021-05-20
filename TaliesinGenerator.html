@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8">
+  <title>A Simple Character Generator for D&D</title>
+  <link rel="stylesheet" type="text/css" href="https://edwardtufte.github.io/tufte-css/tufte.css"/>
+ </head>
+
+ <!-- The layout of the page, and containers. -->
+
+ <body>
+     <h1>Your Character</h1>
+     <div id="copy">These are your strong traits:</div>
+     <p id="traits">Your traits/stats will go here.</p>
+     <p>Your Strength is:</p><p id="str">__</p>
+     <div id="strCommentary" class="commentary"></div>
+     <br />
+     <hr />
+     <div>You are carrying:</div>
+     <p id="equip">Your equipment will go here.</p>
+     <div>You know the following spells:</div>
+     <p id="magic">Your spells will go here.</p>
+     <div>Your max load is:</div>
+     <p id="load">__</p>
+     <div>Give your character a name:</div>
+     <input type="text" id="charname">
+     <button onclick="changeName()" value="">Update Name</button>
+ </body>
+
+ <!-- This formats the 'commentary' class. -->
+
+ <style>
+     .commentary {
+         font-size: 12px;
+         color: grey;
+         font-style: italic;
+     }
+ </style>
+
+ <!-- References to linked JS scripts.-->
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script src="gamemechanics.js"></script>
+<script src="contentlists.js"></script>
+
+<!-- Code for updating the page dynamically. -->
+
+<script>
+    let stats = [' Tough', ' Alert', ' Nimble', ' Sneaky', ' Cunning', ' Noble', ' Learned'];
+    
+    document.getElementById('traits').innerText = _.sampleSize(stats, 2);
+    document.getElementById('equip').innerText = _.sampleSize(basicEquipment, 2);
+    document.getElementById('magic').innerText = _.sampleSize(ethericFormulae, 2);
+
+    document.getElementById('str').innerText = rollStat();
+
+    // Use this code to fetch each ability score.
+
+    let strength = parseInt(document.getElementById('str').innerText);
+
+    // Derive bonuses and adjustments.
+
+    strBonuses(strength);
+
+    getFeatureDice(strength);
+
+    // Load is based on Strength.
+
+    defineLoad(strength);
+
+    function changeName(){
+        document.getElementsByTagName('h1')[0].innerHTML = document.getElementById('charname').value;
+    }
+
+</script>
