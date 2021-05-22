@@ -1,47 +1,52 @@
+// Basic dice rolling.
+
+function rolld6() {
+    let result = _.random(1,6);
+    return result;
+}
+
 function rollStat() {
-    let sum = _.random(1,6) + _.random(1,6) + _.random(1,6);
+    let sum = rolld6() + rolld6() + rolld6();
     return sum;
 }
 
-function strBonuses(str){
-    
-    switch(str){
-        case 13:
-        case 14:
-        case 15:
-            document.getElementById('strCommentary').innerText = "You're a big strong man! +1 damage with serious weapons.";
-            break;
-        case 16:
-        case 17:
-            document.getElementById('strCommentary').innerText = "You're mighty! +1 to damage, or +2 with a heavy weapon.";
-            break;
-        case 18:
-            document.getElementById('strCommentary').innerText = "You're incredible! +1 to damage, or +3 with a heavy weapon!";
-            break;
-        default:
-            document.getElementById('strCommentary').innerText = "Your Strength isn't high enough to give you any bonuses.";
-    }
-}
+// Get Feature dice from a stat.
 
 function getFeatureDice(abilityScore){
     
     switch(abilityScore){
         case 3:
         case 4:
-            document.getElementById('strCommentary').innerText = "Ouch! You are weak, but you get 3 Feature dice.";
+            document.getElementById('featdice').innerText = parseInt(document.getElementById('featdice').innerText) + 3;
+            console.log("Adding 3 Feature dice.");
             break;
         case 5:
         case 6:
-            document.getElementById('strCommentary').innerText = "You are weak, but you get 2 Feature dice.";
+            document.getElementById('featdice').innerText = parseInt(document.getElementById('featdice').innerText) + 2;
+            console.log("Adding 2 Feature dice.");
             break;
         case 7:
         case 8:
-            document.getElementById('strCommentary').innerText = "You are a bit out of shape. Get 1 Feature die.";
+            document.getElementById('featdice').innerText = parseInt(document.getElementById('featdice').innerText) + 1;
+            console.log("Adding 1 Feature die.");
             break;
         default:
-            return;
-    }  
- 
+            console.log("Not adding any Feature dice.");
+    }   
+}
+
+// Check whether an additional Feature die is granted.
+
+function determineTotalFeatureDice(featureDice, statsTotal){
+    
+    let currentTotal = statsTotal + featureDice * 4.7;
+
+    console.log("This character's stats add up to " + statsTotal + ", or " + currentTotal + " if we add " + (featureDice * 4.7));
+
+    if (currentTotal < 75){
+        document.getElementById('featdice').innerText = parseInt(document.getElementById('featdice').innerText) + 1;
+        console.log("This character gets one additional Feature die.");
+    }
 }
 
 function defineLoad(str){
