@@ -19,7 +19,7 @@ let characterTraits = [
     'You think you are smooth, charming, and silver-tongued.',
     'You worry that your heart is dark and rotten.',
     'You are filled with lightness, joy, and hope for the future, despite all that has passed.',
-    'You believe that you are deadly... none will challenge you without regretting it.',
+    'Your nature is deadly... none will challenge you without regretting it.',
     'You worry that you are losing your touch.',
     'You fear that you may yet come unhinged.',
     'Your heart is full of kindness and joy, to lift the spirits of those around you.',

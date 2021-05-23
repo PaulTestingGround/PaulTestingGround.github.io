@@ -11,7 +11,17 @@
 
  <body>
      <h1>Your Character</h1>
-     <h3 id="copy"></h3>
+
+     <table class='header'>
+         <tr>
+             <td class='oracle'><h3 id="copy"></h3></td>
+             <td class='commentary'><div>Give your character a name:</div>
+                <input type="text" id="charname">
+                <button onclick="changeName()" value="">Update Name</button>
+            </td>
+         </tr>
+     </table>
+     
      <br />
      <table class="attr">
         <tbody>
@@ -48,12 +58,35 @@
         </tbody>
     </table>
 
-    <table>
+    <table class='featdice'>
         <tr>
             <td>Your feature dice:</td>
             <td id='featdice'>0</td>
         </tr>
     </table>
+     <br />
+     <table class='secondary'>
+         <tr>
+             <td>Fate:</td>
+             <td id='fate'>8</td>
+             <td class='comments' id='fatecommentary'>(This could say some stuff about your Fate.)</td>
+         </tr>
+         <tr>
+             <td>Hit Dice:</td>
+             <td id='hitdice'>d4</td>
+             <td class='comments' id='hitdicecommentary'></td>
+         </tr>
+         <tr>
+            <td>Attack:</td>
+            <td id='attack'>11</td>
+            <td class='comments' id='attackcommentary'>(This could say things about your Attack.)</td>
+        </tr>
+        <tr>
+            <td>Defend:</td>
+            <td id='defend'>11</td>
+            <td class='comments' id='defendcommentary'>(This could say things about your Defend.)</td>
+         </tr>
+     </table>
      <br />
      <div>You are carrying:</div>
      <p id="equip">Your equipment will go here.</p>
@@ -102,14 +135,30 @@
         text-align: left;
         padding: 0;
     }
+    table td.oracle{
+        width: 42em;
+        padding-right: 50px;
+        font-size: 1.2rem;
+    }
     table td.comments{
         font-size: 1rem;
         font-style: italic;
         width: 36em;
         vertical-align: middle;
     }
+    table.header {
+        border-bottom: none;
+    }
     table.attr {
         border-top: 1px solid #333;
+    }
+    table.featdice {
+        border-bottom: none;
+        font-size: 18px;
+    }
+    table.secondary {
+        border-top: 1px solid #333;
+        font-size: 1.4rem;
     }
  </style>
 
@@ -132,6 +181,9 @@
     let stats = ['str', 'int', 'wis', 'dex', 'con', 'cha'];
     let statsTotal = 0;
     let featureDice = 0;
+    
+    // Code for updating hit dice will need to take into account 1) your Constitution, and 2) your Background
+    // - if you have none, it is a d6.
 
     // Determine ability scores.
 
@@ -146,6 +198,8 @@
     strBonuses(parseInt(document.getElementById('str').innerText));
     intBonuses(parseInt(document.getElementById('int').innerText));
     wisBonuses(parseInt(document.getElementById('wis').innerText));
+    // dexBonuses(parseInt(document.getElementById('dex').innerText));
+    conBonuses(parseInt(document.getElementById('con').innerText));
 
     // Calculate Feature dice.
 
