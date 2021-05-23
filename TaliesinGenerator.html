@@ -62,7 +62,7 @@
 
     <!-- Features -->
 
-    <br />
+    <h2>Features</h2>
     <table class='featdice'>
         <tr>
             <td>Your feature dice:</td>
@@ -105,6 +105,11 @@
      <p id="magic">Your spells will go here.</p>
      <div>Your max load is:</div>
      <p id="load">__</p>
+
+     <!-- Your future -->
+
+     <div>Your future:</div>
+     <p id="future">You can go on to become a Vagabond</p>
  </body>
 
  <!-- This formats the 'commentary' class. -->
@@ -114,6 +119,11 @@
          font-size: 12px;
          color: grey;
          font-style: italic;
+     }
+     h2 {
+         text-align: center;
+         width: 30em;
+         font-size: 1.7em;
      }
      h3 {
          font-size: 1em;
@@ -230,5 +240,28 @@
     function changeName(){
         document.getElementsByTagName('h1')[0].innerHTML = document.getElementById('charname').value;
     }
+
+    function listFuture(){
+
+        let str, int;
+        str = document.getElementById('str').innerText;
+        int = document.getElementById('int').innerText;
+        console.log("Your Strength is " + str + " and your Int is " + int);
+
+        if (str > 8 && int < 11) {
+            document.getElementById('future').innerText += " or a Warrior.";
+        }
+        if (str < 9 && int < 11) {
+            document.getElementById('future').innerText = "You have always been, and will always remain, a Vagabond.";
+        }
+        if (str > 8 && int > 10) {
+            document.getElementById('future').innerText += ", a Warrior, or an Arcanist.";
+        }
+        if (str < 9 && int > 10) {
+            document.getElementById('future').innerText += " or an Arcanist.";
+        }
+    }
+
+    listFuture();
 
 </script>
