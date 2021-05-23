@@ -79,17 +79,17 @@ function dexBonuses(dex){
     
     switch(dex){
        case 13: case 14: case 15:
-            document.getElementById('dexCommentary').innerText = "You are quick, and sharp as a tack. +1 with missile weapons, +1 to Defense.";
+            document.getElementById('dexCommentary').innerText = "You are quick, and sharp as a tack. +1 with missile weapons, +1 to Defend.";
             document.getElementById('attackcommentary').innerText = "+1 with missile weapons";
             document.getElementById('defendcommentary').innerText = "+1 against any attack you can see";
             break;
         case 16: case 17:
-            document.getElementById('dexCommentary').innerText = "You have the reflexes of a cat. +2 with missile weapons, +1 to Defense.";
+            document.getElementById('dexCommentary').innerText = "You have the reflexes of a cat. +2 with missile weapons, +1 to Defend.";
             document.getElementById('attackcommentary').innerText = "+2 with missile weapons";
             document.getElementById('defendcommentary').innerText = "+1 against any attack you can see";
             break;
         case 18:
-            document.getElementById('dexCommentary').innerText = "You are incredible! +3 with missile weapons, +2 to Defense.";
+            document.getElementById('dexCommentary').innerText = "You are incredible! +3 with missile weapons, +2 to Defend.";
             document.getElementById('attackcommentary').innerText = "+3 with missile weapons";
             document.getElementById('defendcommentary').innerText = "+2 against any attack you can see";
             break;
