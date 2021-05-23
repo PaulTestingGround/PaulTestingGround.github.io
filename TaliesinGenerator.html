@@ -22,6 +22,8 @@
          </tr>
      </table>
      
+     <!-- The ability scores. -->
+
      <br />
      <table class="attr">
         <tbody>
@@ -58,6 +60,9 @@
         </tbody>
     </table>
 
+    <!-- Features -->
+
+    <br />
     <table class='featdice'>
         <tr>
             <td>Your feature dice:</td>
@@ -65,11 +70,14 @@
         </tr>
     </table>
      <br />
-     <table class='secondary'>
+
+     <!-- The secondary statistics -->
+
+    <table class='secondary'>
          <tr>
              <td>Fate:</td>
              <td id='fate'>8</td>
-             <td class='comments' id='fatecommentary'>(This could say some stuff about your Fate.)</td>
+             <td class='comments' id='fatecommentary'></td>
          </tr>
          <tr>
              <td>Hit Dice:</td>
@@ -79,15 +87,18 @@
          <tr>
             <td>Attack:</td>
             <td id='attack'>11</td>
-            <td class='comments' id='attackcommentary'>(This could say things about your Attack.)</td>
+            <td class='comments' id='attackcommentary'></td>
         </tr>
         <tr>
             <td>Defend:</td>
             <td id='defend'>11</td>
-            <td class='comments' id='defendcommentary'>(This could say things about your Defend.)</td>
+            <td class='comments' id='defendcommentary'></td>
          </tr>
      </table>
      <br />
+
+     <!-- Unfinished: equipment, spells, and questionnaire. -->
+
      <div>You are carrying:</div>
      <p id="equip">Your equipment will go here.</p>
      <div>You know the following spells:</div>
@@ -117,7 +128,7 @@
         margin-bottom: 1rem;
     }
         
-    /* Attribute Tables */
+    /* Various Tables */
 
     table {
         padding: 0.5em;
@@ -159,7 +170,8 @@
     }
  </style>
 
- <!-- References to linked JS scripts.-->
+
+<!-- References to linked JS scripts.-->
 
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 <script src="gamemechanics.js"></script>
@@ -195,8 +207,9 @@
     strBonuses(parseInt(document.getElementById('str').innerText));
     intBonuses(parseInt(document.getElementById('int').innerText));
     wisBonuses(parseInt(document.getElementById('wis').innerText));
-    // dexBonuses(parseInt(document.getElementById('dex').innerText));
+    dexBonuses(parseInt(document.getElementById('dex').innerText));
     conBonuses(parseInt(document.getElementById('con').innerText));
+    chaBonuses(parseInt(document.getElementById('cha').innerText));
 
     // Calculate Feature dice.
 

@@ -26,7 +26,7 @@ let characterTraits = [
     'You are unrelenting in upholding a principled life.',
     'You know that you are far more valuable or skilled than the fools around you.',
     'You know that true beauty shines out from inside you.',
-    'The anger inside you will drive you, indomitable and true, to your target.',
+    'The anger inside will drive you, indomitable and true, to your target.',
     'You are meant for great deeds, to uncover lost secrets, and to bring light into dark places.',
     'You carry gloom and despair, wrapped around you like winter\'s cloak.',
     'You meet the challenges of life with stoicism and quiet, steadfast courage.',

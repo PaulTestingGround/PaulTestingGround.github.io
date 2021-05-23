@@ -78,28 +78,23 @@ function dexBonuses(dex){
     // Unfinished.
     
     switch(dex){
-        case 3: case 4: case 5: case 6: case 7: case 8:
-            document.getElementById('dexCommentary').innerText = "You never learned to read or write.";
-            break;
-        case 9: case 10:
-            break;
-        case 11: 
-            document.getElementById('dexCommentary').innerText = "You never learned to read or write.";
-            break;
-        case 12: case 13: 
-            document.getElementById('dexCommentary').innerText = "You never learned to read or write.";
-            break;
-        case 14: case 15:
-            document.getElementById('dexCommentary').innerText = "You never learned to read or write.";
+       case 13: case 14: case 15:
+            document.getElementById('dexCommentary').innerText = "You are quick, and sharp as a tack. +1 with missile weapons, +1 to Defense.";
+            document.getElementById('attackcommentary').innerText = "+1 with missile weapons";
+            document.getElementById('defendcommentary').innerText = "+1 against any attack you can see";
             break;
         case 16: case 17:
-            document.getElementById('dexCommentary').innerText = "You never learned to read or write.";
+            document.getElementById('dexCommentary').innerText = "You have the reflexes of a cat. +2 with missile weapons, +1 to Defense.";
+            document.getElementById('attackcommentary').innerText = "+2 with missile weapons";
+            document.getElementById('defendcommentary').innerText = "+1 against any attack you can see";
             break;
         case 18:
-            document.getElementById('dexCommentary').innerText = "You never learned to read or write.";
+            document.getElementById('dexCommentary').innerText = "You are incredible! +3 with missile weapons, +2 to Defense.";
+            document.getElementById('attackcommentary').innerText = "+3 with missile weapons";
+            document.getElementById('defendcommentary').innerText = "+2 against any attack you can see";
             break;
         default:
-            document.getElementById('intCommentary').innerText = '';
+            document.getElementById('dexCommentary').innerText = '';
     }
 }
 
@@ -132,5 +127,31 @@ function conBonuses(con){
             break;
         default:
             document.getElementById('conCommentary').innerText = '';
+    }
+}
+
+// Charisma
+
+function chaBonuses(cha){
+    
+    switch(cha){
+        case 3: case 4:
+            document.getElementById('chaCommentary').innerText = 'You are fundamentally off-putting; absent special circumstances,' + 
+            ' no one will ever be loyal to you.';   
+            break;           
+        case 5: case 6: case 7: case 8:
+            // document.getElementById('chaCommentary').innerText = 'You have trouble winning others over: -1 to Reaction rolls.';   
+            break; 
+        case 13: case 14: case 15:
+            document.getElementById('chaCommentary').innerText = 'Your presence affects people: +1 to Reaction rolls.';   
+            break;
+        case 16: case 17:
+            document.getElementById('chaCommentary').innerText = 'You are truly memorable, exceptional: +2 to Reaction rolls.';  
+            break;
+        case 18:
+            document.getElementById('chaCommentary').innerText = 'Your presence lights up the souls around you: +3 to Reaction rolls.';  
+            break;
+        default:
+            document.getElementById('chaCommentary').innerText = '';  
     }
 }
