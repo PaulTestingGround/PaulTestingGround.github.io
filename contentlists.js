@@ -6,7 +6,7 @@ let characterTraits = [
     'Whether in blood or in spirit, you know you were truly born noble.',
     'You\'ve seen worse than this: darkness, terror, and madness.',
     'You believe you are meant for greatness, fame, and to sit upon a throne.',
-    'You know, deep inside, that you are doomed to die, to rot, and to never be remembered.',
+    'You know, deep inside, that you are doomed to die, to rot, to be forgotten.',
     'You are wary and sharp: you are no one\'s fool.',
     'You know that wherever you turn your gaze, nothing can pass unnoticed.',
     'You are willing to do anything it takes to get what you want.',
@@ -53,3 +53,38 @@ let ethericFormulae = [
     ' A Tentacular Expository',
     ' Otiluke\'s Frozen Scrotum'
 ]
+
+let FEATURES = {
+    'A most particular expertise': [
+        'Crafty and clever', 
+        'Former priest',
+        'Woodsman',
+        'Cypherer',
+        'Languages',
+        'Former military'],
+    'A nose for danger': [
+        'Double-jointed',
+        'Something was watching you',
+        'Heightened sense of smell',
+        'Slitted eyes',
+        'Inner compass',
+        'Demon touch'],
+    'Well equipped': [
+        'You have everything you need for adventuring',
+        'You have the support of someone well-to-do',
+        'You have a set of locks, keys, and manacles',
+        'You ransacked an armoury once',
+        'You are dressed like a noble',
+        'You are outfitted for war'],
+    'Tough as Nails': [
+        'Hard cock'],
+    'The Gods Smile Upon You': [
+        'Smiling at the size of your tits'],
+    'Touched by the Beyond': [
+        'weird shit',
+        'weirder still'],
+    'Beyond Weird': [
+        'homunculus and shit',
+        'lots of formulae']
+}
+

@@ -54,6 +54,9 @@ function intBonuses(int){
 function wisBonuses(wis){
     
     switch(wis){
+        case 3: case 4: case 5: case 6:
+            document.getElementById('wisCommentary').innerText = "You don't know how to ride a horse.";
+            break;
         case 13: case 14: case 15:
             document.getElementById('wisCommentary').innerText = "The years have taught you how to steel your mind against curse or sorcery (+1, under Fate).";
             document.getElementById('fatecommentary').innerText = "+1 against curse or sorcery";
@@ -74,11 +77,12 @@ function wisBonuses(wis){
 // Dexterity
 
 function dexBonuses(dex){
-
-    // Unfinished.
     
     switch(dex){
-       case 13: case 14: case 15:
+        case 3: case 4: case 5: case 6:
+            document.getElementById('dexCommentary').innerText = "You don't know how to swim.";
+            break;
+        case 13: case 14: case 15:
             document.getElementById('dexCommentary').innerText = "You are quick, and sharp as a tack. +1 with missile weapons, +1 to Defend.";
             document.getElementById('attackcommentary').innerText = "+1 with missile weapons";
             document.getElementById('defendcommentary').innerText = "+1 against any attack you can see";

@@ -17,7 +17,7 @@
              <td class='oracle'><h3 id="copy"></h3></td>
              <td class='commentary'><div>Give your character a name:</div>
                 <input type="text" id="charname">
-                <button onclick="changeName()" value="">Update Name</button>
+                <button onclick="changeName()" value="">Name them now.</button>
             </td>
          </tr>
      </table>
@@ -67,7 +67,33 @@
         <tr>
             <td>Your feature dice:</td>
             <td id='featdice'>0</td>
+            <td></td>
+            <td></td>
         </tr>
+<!--         <tr>
+            <td>A Most Particular Expertise:</td>
+            <td id='featdice1'></td>
+        </tr>
+        <tr>
+            <td>A Nose for Danger:</td>
+            <td id='featdice1'></td>
+        </tr>
+        <tr>
+            <td>Well Equipped:</td>
+            <td id='featdice1'></td>
+        </tr>
+        <tr>
+            <td>Tough as Nails:</td>
+            <td id='featdice1'></td>
+        </tr>
+        <tr>
+            <td>The Gods Smile Upon You:</td>
+            <td id='featdice1'></td>
+        </tr>
+        <tr>
+            <td>Touched by the Beyond:</td>
+            <td id='featdice1'></td>
+        </tr> -->
     </table>
      <br />
 
@@ -108,8 +134,7 @@
 
      <!-- Your future -->
 
-     <div>Your future:</div>
-     <p id="future">You can go on to become a Vagabond</p>
+     <p id="future">Your future: you can go on to become a Vagabond</p>
  </body>
 
  <!-- This formats the 'commentary' class. -->
@@ -161,7 +186,7 @@
     table td.comments{
         font-size: 1rem;
         font-style: italic;
-        width: 36em;
+        width: 40em;
         vertical-align: middle;
     }
     table.header {
@@ -173,10 +198,13 @@
     table.featdice {
         border-bottom: none;
         font-size: 18px;
+        width: 100%;
     }
     table.secondary {
         border-top: 1px solid #333;
         font-size: 1.4rem;
+        width: 42em;
+        padding-right: 50px;
     }
  </style>
 
@@ -225,7 +253,6 @@
 
     for (const statName of stats){
         let statScore = parseInt(document.getElementById(statName).innerText);
-        console.log('Because ' + statName + ' is a ' + statScore + ', checking to see whether dice should be added.');
         getFeatureDice(statScore);
     }
 
@@ -237,10 +264,14 @@
 
     defineLoad(parseInt(document.getElementById('str').innerText));
 
+    // This functions changes the character's name.
+
     function changeName(){
         document.getElementsByTagName('h1')[0].innerHTML = document.getElementById('charname').value;
     }
 
+    // This function determines the character's future.
+    
     function listFuture(){
 
         let str, int;
