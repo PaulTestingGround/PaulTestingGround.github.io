@@ -65,36 +65,43 @@
     <h2>Features</h2>
     <table class='featdice'>
         <tr>
-            <td>Your feature dice:</td>
-            <td id='featdice'>0</td>
-            <td></td>
-            <td></td>
-        </tr>
-<!--         <tr>
             <td>A Most Particular Expertise:</td>
             <td id='featdice1'></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>A Nose for Danger:</td>
-            <td id='featdice1'></td>
+            <td id='featdice2'></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>Well Equipped:</td>
-            <td id='featdice1'></td>
+            <td id='featdice3'></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>Tough as Nails:</td>
-            <td id='featdice1'></td>
+            <td id='featdice4'></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>The Gods Smile Upon You:</td>
-            <td id='featdice1'></td>
+            <td id='featdice5'></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>Touched by the Beyond:</td>
-            <td id='featdice1'></td>
-        </tr> -->
+            <td id='featdice6'></td>
+            <td></td>
+            <td></td>
+        </tr>
     </table>
+     <br />
      <br />
 
      <!-- The secondary statistics -->
@@ -121,6 +128,7 @@
             <td class='comments' id='defendcommentary'></td>
          </tr>
      </table>
+     <br />
      <br />
 
      <!-- Unfinished: equipment, spells, and questionnaire. -->
@@ -256,9 +264,23 @@
         getFeatureDice(statScore);
     }
 
-    featureDice = parseInt(document.getElementById('featdice').innerText);
+    // Old code --- featureDice = parseInt(document.getElementById('featdice').innerText);
 
     determineTotalFeatureDice(featureDice, statsTotal);
+
+    // Roll Feature dice (prints in console).
+
+    // Old code --- featureDice = parseInt(document.getElementById('featdice').innerText);
+
+    console.log("Your character has " + featureDice + " Feature dice. Congrats!!!")
+
+    featureDice = rollFeatures(featureDice);
+
+    sortFeatDice(featureDice);
+
+    // Removes extra commas.
+
+    cleanFeatDice();
 
     // Load is based on Strength.
 
