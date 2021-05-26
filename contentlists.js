@@ -8,7 +8,7 @@ let characterTraits = [
     'You believe you are meant for greatness, fame, and to sit upon a throne.',
     'You know, deep inside, that you are doomed to die, to rot, to be forgotten.',
     'You are wary and sharp: you are no one\'s fool.',
-    'You know that wherever you turn your gaze, nothing can pass unnoticed.',
+    'You know that nothing can escape your watchful gaze and inquisitive mind.',
     'You are willing to do anything it takes to get what you want.',
     'You know that you are nimble and plucky: always in the right place at the right time.',
     'You are filled with dread at what is to come.',
@@ -88,3 +88,72 @@ let FEATURES = {
         'lots of formulae']
 }
 
+let basicWeapons = [
+    'a cudgel',
+    'a dagger',
+    'a sickle',
+    'a scythe',
+    'a whip'
+]
+
+let seriousWeapons = [
+    'spiked gauntlet',
+    'flanged mace',
+    'morningstar',
+    'battleaxe',
+    'battle pike',
+    'crossbow',
+    'war hammer',
+    'heavy flail',
+    'spiked flail',
+    'rapier',
+    'trident',
+    'scimitar',
+    'longsword',
+    'broadsword',
+    'falchion',
+    'halberd',
+    'poleaxe',
+    'greatsword',
+    'maul',
+    'zweihander',
+    'sabre',
+    'khopesh',
+    'war club',
+    'lance',
+    'mancatcher',
+    'longspear'
+]
+
+let missileWeapons = [
+    'crossbow',
+    'heavy crossbow',
+    'trio of javelins',
+    'longbow',
+    'shortbow',
+    'throwing knives (5)',
+    'pair of throwing axes',
+    'sling and stones'
+]
+
+let armorTypes = [
+    'lamellar armor (medium)',
+    'banded mail (medium)',
+    'leather buff coat (light)',
+    'brigandine armor (medium)',
+    'a coat of plates (heavy)',
+    'chain mail (medium)',
+    'a gambeson or \'padded jack\' (light)',
+    'hauberk (chain shirt, medium)',
+    'plate mail (heavy)',
+    'scale mail (medium)',
+    'breastplate or cuirass (medium)',
+    'cuir bouilli (light)',
+    'animal hide armor (light)',
+    'great lizard skin armor (light)',
+    'bronze hoplite armor (medium)',
+    'bone armor (light)',
+    'bronze banded mail (medium)',
+    'lacquered steel mail (heavy)',
+    'tortoise or insect carapace armor (light or medium)'
+]

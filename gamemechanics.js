@@ -10,32 +10,6 @@ function rollStat() {
     return sum;
 }
 
-// Get Feature dice from a stat. (Old version.)
-
-/* function getFeatureDice(abilityScore) {
-    
-    switch(abilityScore){
-        case 3:
-        case 4:
-            document.getElementById('featdice').innerText = parseInt(document.getElementById('featdice').innerText) + 3;
-            console.log("Adding 3 Feature dice.");
-            break;
-        case 5:
-        case 6:
-            document.getElementById('featdice').innerText = parseInt(document.getElementById('featdice').innerText) + 2;
-            console.log("Adding 2 Feature dice.");
-            break;
-        case 7:
-        case 8:
-            document.getElementById('featdice').innerText = parseInt(document.getElementById('featdice').innerText) + 1;
-            console.log("Adding 1 Feature die.");
-            break;
-        default:
-            console.log("Not adding any Feature dice.");
-    }   
-}
- */
-
 // Get Feature dice (new version).
 
 function getFeatureDice(abilityScore) {
@@ -107,15 +81,15 @@ function sortFeatDice(featureArray) {
         
         // Iterate through the whole array for each number.
 
-        for(let i = 0; i < featureArray.length; i++) { 
+        for (let i = 0; i < featureArray.length; i++) { 
 
-            if(featureArray[i] == featType) {
+            if (featureArray[i] == featType) {
 
                 console.log("Found a " + featType + ".");
 
-                featTypeString = 'featdice' + (featType);
+                countAFeatureDie(featType);
 
-                console.log(featTypeString);
+                featTypeString = 'featdice' + (featType);
 
                 document.getElementById(featTypeString).innerText += featType + ',' + '\xa0';
 
@@ -128,6 +102,13 @@ function sortFeatDice(featureArray) {
     }
 
 
+}
+
+// This adds Feature dice to the Feature dice array.
+
+function countAFeatureDie(type) {
+    featDice[type] += 1; 
+    console.log("Adding a die to the Features array. Now the array reads: " + featDice);
 }
 
 function cleanFeatDice() {
@@ -180,4 +161,46 @@ function defineLoad(str) {
     if (strvalue == 18){
         document.getElementById("load").innerText = "7";
     }
+}
+
+// Determine what Backgrounds are available, and modify the DOM accordingly.
+
+function checkBackgrounds() {
+
+    // Brawler, req Str 11+
+
+    if (str > 10) {
+        document.getElementById('backgroundoptions').innerText += '\xa0' + 'Brawler,';
+    }
+
+    // Initiated, req Int 11+
+
+    if (int > 10) {
+        document.getElementById('backgroundoptions').innerText += '\xa0' + 'Initiated,';
+    }
+
+    // Marksman, req Wis or Dex 11+
+
+    if (wis > 10 || dex > 10) {
+        document.getElementById('backgroundoptions').innerText += '\xa0' + 'Marksman,';
+    }
+
+    // Trained, req Dex 11+
+
+    if (dex > 10) {
+        document.getElementById('backgroundoptions').innerText += '\xa0' + 'Trained,';
+    }
+
+    // Tough, req Con 11+
+
+    if (con > 10) {
+        document.getElementById('backgroundoptions').innerText += '\xa0' + 'Tough,';
+    }
+
+    // Chirurgeon?
+    // Wilderness Lore, Street Smarts, Cunning Fingers/Tinker/Craft?
+
+    // Last one, Scoundrel, is for everyone.
+
+    document.getElementById('backgroundoptions').innerText += '\xa0' + 'Scoundrel.)';
 }

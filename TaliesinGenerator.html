@@ -17,7 +17,7 @@
              <td class='oracle'><h3 id="copy"></h3></td>
              <td class='commentary'><div>Give your character a name:</div>
                 <input type="text" id="charname">
-                <button onclick="changeName()" value="">Name them now.</button>
+                <button onclick="changeName()" value="">Click to christen them.</button>
             </td>
          </tr>
      </table>
@@ -63,7 +63,7 @@
     <!-- Features -->
 
     <h2>Features</h2>
-    <table class='featdice'>
+    <table class='featdice' id='featurestable'>
         <tr>
             <td>A Most Particular Expertise:</td>
             <td id='featdice1'></td>
@@ -101,6 +101,12 @@
             <td></td>
         </tr>
     </table>
+    <br />
+    <div id='featureinstructions'>Each number above represents a Feature die - in the next step, each will become a special 
+        Feature of that type for your character (e.g. each '3' means you are "Well Equipped" in some way). If you'd like, 
+        you may discard one of your rolled Feature dice in order to select a Background. Choose one below:</div>
+    <br />
+    <div id='backgroundoptions'>(Note that if you do so, your available Background choices will be:</div>
      <br />
      <br />
 
@@ -154,12 +160,16 @@
          font-style: italic;
      }
      h2 {
+         width: 32em;
          text-align: center;
-         width: 30em;
          font-size: 1.7em;
      }
      h3 {
          font-size: 1em;
+     }
+     div {
+         max-width: 50em;
+         width: 90%;
      }
 
     /* Buttons */
@@ -228,7 +238,7 @@
 
 <script>
 
-    document.getElementById('copy').innerHTML += _.sample(characterTraits);
+    document.getElementById('copy').innerHTML = _.sample(characterTraits); // The top line "oracle".
     
     document.getElementById('equip').innerText = _.sampleSize(basicEquipment, 2);
     document.getElementById('magic').innerText = _.sampleSize(ethericFormulae, 2);
@@ -242,49 +252,75 @@
 
     // Determine ability scores.
 
-    for (const statName of stats){
-        let tempscore = rollStat();
-        document.getElementById(statName).innerText = tempscore;
-        statsTotal += tempscore;
+    for (const statName of stats) {
+        window[statName] = rollStat(); // creates a new global variable for each stat and its value.
+        console.log("Just declared a new variable called " + statName + ". Its value is " + window[statName] + ".");
+        document.getElementById(statName).innerText = window[statName];
+        statsTotal += window[statName];
     }
 
-    // Determine ability modifiers.
+    // Determine ability modifiers. (Unfortunately, each function is different, so we can't iterate through 'stats'.)
 
-    strBonuses(parseInt(document.getElementById('str').innerText));
-    intBonuses(parseInt(document.getElementById('int').innerText));
-    wisBonuses(parseInt(document.getElementById('wis').innerText));
-    dexBonuses(parseInt(document.getElementById('dex').innerText));
-    conBonuses(parseInt(document.getElementById('con').innerText));
-    chaBonuses(parseInt(document.getElementById('cha').innerText));
+    strBonuses(str);
+    intBonuses(int);
+    wisBonuses(wis);
+    dexBonuses(dex);
+    conBonuses(con);
+    chaBonuses(cha);
 
     // Calculate Feature dice.
 
     for (const statName of stats){
-        let statScore = parseInt(document.getElementById(statName).innerText);
-        getFeatureDice(statScore);
+        getFeatureDice(window[statName]);
     }
-
-    // Old code --- featureDice = parseInt(document.getElementById('featdice').innerText);
 
     determineTotalFeatureDice(featureDice, statsTotal);
 
-    // Roll Feature dice (prints in console).
-
-    // Old code --- featureDice = parseInt(document.getElementById('featdice').innerText);
-
-    console.log("Your character has " + featureDice + " Feature dice. Congrats!!!")
-
     featureDice = rollFeatures(featureDice);
+
+    // This array tracks Feature dice based on their roll.
+
+    let featDice = [0,0,0,0,0,0,0]; // Note that the index of the array corresponds to the type of die. Index 0 is always empty.
+
+    // Organize and remove commas.
 
     sortFeatDice(featureDice);
 
-    // Removes extra commas.
-
     cleanFeatDice();
+
+    // Remove text if there are no Feature dice.
+
+    function ifFeatures() {
+        if (featureDice == 0) {
+            removeFeatureChoiceText();
+            console.log("There are no Feature dice.");
+        }
+    }
+
+    ifFeatures();
+
+    function removeFeatureChoiceText() {
+
+        // Removes unnecessary div elements for Feature dice and Backgrounds.    
+        
+        let unwantedText = document.getElementById('featureinstructions');
+        let unwantedChoices = document.getElementById('backgroundoptions');
+
+        unwantedText.remove();
+        unwantedChoices.remove();
+
+        let featureDiceTable = document.getElementById('featurestable');
+
+        featureDiceTable.remove();
+    }
 
     // Load is based on Strength.
 
     defineLoad(parseInt(document.getElementById('str').innerText));
+
+    // Add possible background choices.
+
+    checkBackgrounds();
 
     // This functions changes the character's name.
 
@@ -295,11 +331,6 @@
     // This function determines the character's future.
     
     function listFuture(){
-
-        let str, int;
-        str = document.getElementById('str').innerText;
-        int = document.getElementById('int').innerText;
-        console.log("Your Strength is " + str + " and your Int is " + int);
 
         if (str > 8 && int < 11) {
             document.getElementById('future').innerText += " or a Warrior.";
