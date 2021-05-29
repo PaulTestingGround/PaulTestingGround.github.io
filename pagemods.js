@@ -22,7 +22,9 @@ function createFeaturesButtons() {
 
             // The button will call 'removeFeatureDie' with the appropriate index.
 
-            newbutton.onclick = () => { removeFeatureDie(i) };
+            let tempscore = i;
+
+            newbutton.onclick = () => { removeFeatureDie(tempscore) };
 
             console.log("Made a new button to drop a " + i);
 
