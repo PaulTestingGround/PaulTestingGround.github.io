@@ -1,3 +1,5 @@
+// Lists of content for the Taliesin Generator.
+
 let characterTraits = [
     'You are tough as steel, unbending and indomitable.',
     'You know you are canny, cunning, and clever: all three and no less.',
@@ -32,8 +34,10 @@ let characterTraits = [
     'You meet the challenges of life with stoicism and quiet, steadfast courage.',
     'You are possessed of a quick wit and a disarming smile.',
     'Your instincts, intuition, and imagination always lead you to the truth.',
-    'Your ambitious spirit drives you: no barriers are insurmountable.',
-    'It is only your relentless vigilance that keeps you and your companions alive.'
+    'Your ambitious spirit drives you: no barrier is insurmountable.',
+    'It is only your relentless vigilance that keeps you and your companions alive.',
+    'Subtlety and stealth, that is the way to the top of the mountain.',
+    'You are not who you seem.'
 ]
 
 let basicEquipment = [
@@ -130,7 +134,7 @@ let missileWeapons = [
     'heavy crossbow',
     'trio of javelins',
     'longbow',
-    'shortbow',
+    'recurve bow',
     'throwing knives (5)',
     'pair of throwing axes',
     'sling and stones'
@@ -147,13 +151,15 @@ let armorTypes = [
     'hauberk (chain shirt, medium)',
     'plate mail (heavy)',
     'scale mail (medium)',
-    'breastplate or cuirass (medium)',
+    'steel cuirass (medium)',
     'cuir bouilli (light)',
     'animal hide armor (light)',
     'great lizard skin armor (light)',
     'bronze hoplite armor (medium)',
     'bone armor (light)',
     'bronze banded mail (medium)',
-    'lacquered steel mail (heavy)',
-    'tortoise or insect carapace armor (light or medium)'
+    'lacquered steel plate mail (heavy)',
+    'tortoise or insect carapace armor (light or medium)',
+    'bronze breastplate, engraved (medium)',
+    'ceramic plates and stitched wood (medium)'
 ]

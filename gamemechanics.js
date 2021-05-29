@@ -1,3 +1,11 @@
+// For the Taliesin Generator.
+
+// The following functions are used by the generator to determine game mechanics for character creation, 
+// with the exception of ability score modifiers, which are in their own file.
+
+// --------------------------------------------------------------------------------
+
+
 // Basic dice rolling.
 
 function rolld6() {
@@ -14,7 +22,7 @@ function rollStat() {
 
 function getFeatureDice(abilityScore) {
     
-    switch(abilityScore){
+    switch(abilityScore) {
         case 3:
         case 4:
             featureDice += 3;
@@ -141,25 +149,25 @@ function defineLoad(str) {
     let strvalue = parseInt(str);
 
     if (strvalue < 4){
-        document.getElementById("load").innerText = "1";
+        document.getElementById("load").innerText += " 1";
     }
     if (strvalue > 3 && strvalue < 6){
-        document.getElementById("load").innerText = "2";
+        document.getElementById("load").innerText += " 2";
     }
     if (strvalue > 5 && strvalue < 9){
-        document.getElementById("load").innerText = "3";
+        document.getElementById("load").innerText += " 3";
     }
     if (strvalue > 8 && strvalue < 13){
-        document.getElementById("load").innerText = "4";
+        document.getElementById("load").innerText += " 4";
     }
     if (strvalue > 12 && strvalue < 16){
-        document.getElementById("load").innerText = "5";
+        document.getElementById("load").innerText += " 5";
     }
     if (strvalue > 15 && strvalue < 18){
-        document.getElementById("load").innerText = "6";
+        document.getElementById("load").innerText += " 6";
     }
     if (strvalue == 18){
-        document.getElementById("load").innerText = "7";
+        document.getElementById("load").innerText += " 7";
     }
 }
 
@@ -171,30 +179,35 @@ function checkBackgrounds() {
 
     if (str > 10) {
         document.getElementById('backgroundoptions').innerText += '\xa0' + 'Brawler,';
+        createBackgroundButton('Brawler');
     }
 
     // Initiated, req Int 11+
 
     if (int > 10) {
         document.getElementById('backgroundoptions').innerText += '\xa0' + 'Initiated,';
+        createBackgroundButton('Initiated');
     }
 
     // Marksman, req Wis or Dex 11+
 
     if (wis > 10 || dex > 10) {
         document.getElementById('backgroundoptions').innerText += '\xa0' + 'Marksman,';
+        createBackgroundButton('Marskman');
     }
 
     // Trained, req Dex 11+
 
     if (dex > 10) {
         document.getElementById('backgroundoptions').innerText += '\xa0' + 'Trained,';
+        createBackgroundButton('Trained');
     }
 
     // Tough, req Con 11+
 
     if (con > 10) {
         document.getElementById('backgroundoptions').innerText += '\xa0' + 'Tough,';
+        createBackgroundButton('Tough');
     }
 
     // Chirurgeon?
@@ -203,4 +216,5 @@ function checkBackgrounds() {
     // Last one, Scoundrel, is for everyone.
 
     document.getElementById('backgroundoptions').innerText += '\xa0' + 'Scoundrel.)';
+    createBackgroundButton('Scoundrel');
 }

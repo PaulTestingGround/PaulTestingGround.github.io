@@ -17,14 +17,14 @@
              <td class='oracle'><h3 id="copy"></h3></td>
              <td class='commentary'><div>Give your character a name:</div>
                 <input type="text" id="charname">
-                <button onclick="changeName()" value="">Click to christen them.</button>
+                <button onclick="changeName()" value="">Click to name them.</button>
             </td>
          </tr>
      </table>
      
      <!-- The ability scores. -->
 
-     <br />
+     <br>
      <table class="attr">
         <tbody>
             <tr>
@@ -32,7 +32,7 @@
                 <td id='str'>__</td>
                 <td class='comments' id='strCommentary'></td>
             </tr>
-            <tr></tr>
+            <tr>
                 <td>Intelligence</td>
                 <td id='int'>__</td>
                 <td class='comments' id='intCommentary'></td>
@@ -63,52 +63,77 @@
     <!-- Features -->
 
     <h2>Features</h2>
+    <div id="finalfeatures"></div>
+    <div id='featuresetup'>
     <table class='featdice' id='featurestable'>
         <tr>
             <td>A Most Particular Expertise:</td>
             <td id='featdice1'></td>
-            <td></td>
             <td></td>
         </tr>
         <tr>
             <td>A Nose for Danger:</td>
             <td id='featdice2'></td>
             <td></td>
-            <td></td>
         </tr>
         <tr>
             <td>Well Equipped:</td>
             <td id='featdice3'></td>
-            <td></td>
             <td></td>
         </tr>
         <tr>
             <td>Tough as Nails:</td>
             <td id='featdice4'></td>
             <td></td>
-            <td></td>
         </tr>
         <tr>
             <td>The Gods Smile Upon You:</td>
             <td id='featdice5'></td>
-            <td></td>
-            <td></td>
+            <!-- <td></td>
+            <td></td> -->
         </tr>
         <tr>
             <td>Touched by the Beyond:</td>
             <td id='featdice6'></td>
-            <td></td>
-            <td></td>
+            <!-- <td></td> -->
+            <!-- <td></td> -->
         </tr>
     </table>
-    <br />
+    <br>
     <div id='featureinstructions'>Each number above represents a Feature die - in the next step, each will become a special 
         Feature of that type for your character (e.g. each '3' means you are "Well Equipped" in some way). If you'd like, 
         you may discard one of your rolled Feature dice in order to select a Background. Choose one below:</div>
-    <br />
+    <br>
     <div id='backgroundoptions'>(Note that if you do so, your available Background choices will be:</div>
-     <br />
-     <br />
+    <table id="featurebuttonsTable" class='header'>
+        <tbody>
+         <tr id='featurebuttons'></tr>
+        </tbody>
+    </table>
+    <div>If you'd like to keep all your Features, click here, instead:</div>
+    <br>
+    <table class='header'>
+        <tbody>
+        <tr><button onclick='movingOn()' value=''>No, thanks. Roll my Features!</button></tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <!-- The Backgrounds -->
+
+    <div id='backgrounds' class='backgrounds'>
+        <h2>Background</h2>
+        <div>In this section, you will select a background for your character. (Most are self-explanatory. "Trained" means your
+            character was trained at a young age by a swordsmaster or similar, learning to parry, riposte, and agile footwork.
+            "Initiated" means that your character has been initiated to the mysteries of thaumic distortion, and knows how to
+            force an eidolon into their desired form.)
+        </div>
+        <table id="backgroundButtonsTable" class='header'> <!-- This table is where the temporary buttons go. -->
+            <tbody>
+             <tr id='backgroundButtons'></tr>
+            </tbody>
+        </table>
+    </div>
 
      <!-- The secondary statistics -->
 
@@ -143,8 +168,7 @@
      <p id="equip">Your equipment will go here.</p>
      <div>You know the following spells:</div>
      <p id="magic">Your spells will go here.</p>
-     <div>Your max load is:</div>
-     <p id="load">__</p>
+     <p id="load">Your max load is:</p>
 
      <!-- Your future -->
 
@@ -160,7 +184,7 @@
          font-style: italic;
      }
      h2 {
-         width: 32em;
+         width: 26em;
          text-align: center;
          font-size: 1.7em;
      }
@@ -177,8 +201,8 @@
     button {
         font-family: et-book, Palatino, sans-serif;
         font-size: 1rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
         
     /* Various Tables */
@@ -194,7 +218,7 @@
         width: 8em;
         vertical-align: top;
         text-align: left;
-        padding: 0;
+        /* padding: 0; */
     }
     table td.oracle{
         width: 42em;
@@ -233,6 +257,7 @@
 <script src="gamemechanics.js"></script>
 <script src="contentlists.js"></script>
 <script src="stat-modifiers.js"></script>
+<script src="pagemods.js"></script>
 
 <!-- Code for updating the page dynamically. -->
 
@@ -288,39 +313,30 @@
 
     cleanFeatDice();
 
+    // Create buttons for the player's choice.
+
+    createFeaturesButtons();
+
+    // Add possible background choices.
+
+    checkBackgrounds();
+
     // Remove text if there are no Feature dice.
 
     function ifFeatures() {
         if (featureDice == 0) {
             removeFeatureChoiceText();
             console.log("There are no Feature dice.");
+            removeBackgrounds();
+            console.log("There is no Background to choose; removing that section.");
         }
     }
 
     ifFeatures();
 
-    function removeFeatureChoiceText() {
-
-        // Removes unnecessary div elements for Feature dice and Backgrounds.    
-        
-        let unwantedText = document.getElementById('featureinstructions');
-        let unwantedChoices = document.getElementById('backgroundoptions');
-
-        unwantedText.remove();
-        unwantedChoices.remove();
-
-        let featureDiceTable = document.getElementById('featurestable');
-
-        featureDiceTable.remove();
-    }
-
     // Load is based on Strength.
 
     defineLoad(parseInt(document.getElementById('str').innerText));
-
-    // Add possible background choices.
-
-    checkBackgrounds();
 
     // This functions changes the character's name.
 

@@ -1,4 +1,8 @@
-// Determining bonuses from each stat.
+// This file contains functions used to determine modifiers from each stat.
+
+// For the Taliesin Generator.
+
+
 
 // Strength
 
