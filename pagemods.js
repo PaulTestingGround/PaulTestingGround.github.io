@@ -25,6 +25,7 @@ function createFeaturesButtons() {
             let tempscore = i;
 
             newbutton.onclick = () => { removeFeatureDie(tempscore) };
+            newbutton.onclick = () => { showBackgroundOptions() };
 
             console.log("Made a new button to drop a " + i);
 
@@ -86,6 +87,12 @@ function createBackgroundButton(backgroundtype) {
     newbutton.onclick = () => { chooseBackground(backgroundtype) };
 
     console.log("Made a new button to choose the " + backgroundtype + ".");
+}
+
+
+function showBackgroundOptions() {
+    let backgroundsSection = document.getElementById('backgrounds');
+    backgroundsSection.style.display = 'block';
 }
 
 
