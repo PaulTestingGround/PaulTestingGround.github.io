@@ -193,7 +193,7 @@ function checkBackgrounds() {
 
     if (wis > 10 || dex > 10) {
         document.getElementById('backgroundoptions').innerText += '\xa0' + 'Marksman,';
-        createBackgroundButton('Marskman');
+        createBackgroundButton('Marksman');
     }
 
     // Trained, req Dex 11+

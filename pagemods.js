@@ -89,6 +89,7 @@ function createBackgroundButton(backgroundtype) {
     console.log("Made a new button to choose the " + backgroundtype + ".");
 }
 
+// This function displays the available background options (called if the player discards a Feature die).
 
 function showBackgroundOptions() {
     let backgroundsSection = document.getElementById('backgrounds');
@@ -100,12 +101,45 @@ function showBackgroundOptions() {
 
 function chooseBackground(backgroundtype) {
 
+    console.log("CHOOSING BACKGROUND NOW!!!");
+
+    let oldtable = document.getElementById('backgroundButtonsTable');
+
     switch(backgroundtype) {
         case 'Brawler':
-            // something happens
+            // New description replaces instruction text.
+            document.getElementById('backgrounddetails').innerHTML = "You are a Brawler. You hit people. <br><br><br>";
+            // Adjust other stats and fields.
+                // Perhaps there will be an "addEquipment()" function which gets called here.
+                // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.         
+            break;
+        case 'Initiated':
+            // New description replaces instruction text.
+            document.getElementById('backgrounddetails').innerHTML = "Ooh, yeah! Spooky! But actually you don't know shit. <br><br><br>";
+            // Adjust other stats and fields.
+                    // Perhaps there will be an "addEquipment()" function which gets called here.
+                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.         
             break;
         case 'Marksman':
-            // something else
+            // New description replaces instruction text.
+            document.getElementById('backgrounddetails').innerHTML = "Yeah, you're all sharp and stuff. Hope you know how to run! <br><br><br>";
+            // Adjust other stats and fields.
+                // Perhaps there will be an "addEquipment()" function which gets called here.
+                // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            break;
+        case 'Tough':
+            // New description replaces instruction text.
+            document.getElementById('backgrounddetails').innerHTML = "It's hard to hurt you. But sure is fun to try! <br><br><br>";
+            // Adjust other stats and fields.
+                    // Perhaps there will be an "addEquipment()" function which gets called here.
+                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.      
+            break;
+        case 'Trained':
+            // New description replaces instruction text.
+            document.getElementById('backgrounddetails').innerHTML = "You grow up rich or something? Yeah, you sure turned out well... <br><br><br>";
+            // Adjust other stats and fields.
+                    // Perhaps there will be an "addEquipment()" function which gets called here.
+                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
             break;
         case 'Scoundrel':
             // New description replaces instruction text.
@@ -113,12 +147,11 @@ function chooseBackground(backgroundtype) {
             // Adjust other stats and fields.
                 // Perhaps there will be an "addEquipment()" function which gets called here.
                 // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
-
-            // Remove the buttons.
-            let oldtable = document.getElementById('backgroundButtonsTable');
-            oldtable.remove();
             break;
         default:
+            console.log("None of the backgrounds were chosen.");
             return; 
-    }    
+    }   
+    // Remove the buttons.
+    oldtable.remove();
 }

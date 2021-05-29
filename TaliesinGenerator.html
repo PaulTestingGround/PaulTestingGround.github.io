@@ -296,21 +296,21 @@
     conBonuses(con);
     chaBonuses(cha);
 
-    // Calculate Feature dice.
+    // Calculate Feature dice. (Sets a total number, based on stats.)
 
     for (const statName of stats){
         getFeatureDice(window[statName]);
     }
 
-    determineTotalFeatureDice(featureDice, statsTotal);
+    determineTotalFeatureDice(featureDice, statsTotal); // Adds an extra die if conditions are met.
 
-    featureDice = rollFeatures(featureDice);
+    featureDice = rollFeatures(featureDice); // "Rolls" the Feature dice.
 
-    // This array tracks Feature dice based on their roll.
+    // This array tracks Feature dice based on their roll:
 
     let featDice = [0,0,0,0,0,0,0]; // Note that the index of the array corresponds to the type of die. Index 0 is always empty.
 
-    // Organize and remove commas.
+    // Organize, display, and remove commas.
 
     sortFeatDice(featureDice);
 
