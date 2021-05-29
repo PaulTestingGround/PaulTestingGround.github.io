@@ -100,6 +100,17 @@ function chooseBackground(backgroundtype) {
         case 'Marksman':
             // something else
             break;
+        case 'Scoundrel':
+            // New description replaces instruction text.
+            document.getElementById('backgrounddetails').innerHTML = "You are a Scoundrel. Seriously, you suck. Big Time. <br><br><br>";
+            // Adjust other stats and fields.
+                // Perhaps there will be an "addEquipment()" function which gets called here.
+                // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+
+            // Remove the buttons.
+            let oldtable = document.getElementById('backgroundButtonsTable');
+            oldtable.remove();
+            break;
         default:
             return; 
     }    
