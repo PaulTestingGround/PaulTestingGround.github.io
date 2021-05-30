@@ -143,11 +143,11 @@ function conBonuses(con){
 function chaBonuses(cha){
     
     switch(cha){
-        case 3: case 4:
+        case 3: case 4: case 5:
             document.getElementById('chaCommentary').innerText = 'You are fundamentally off-putting; absent special circumstances,' + 
             ' no one will ever be loyal to you.';   
             break;           
-        case 5: case 6: case 7: case 8:
+        case 6: case 7: case 8:
             // document.getElementById('chaCommentary').innerText = 'You have trouble winning others over: -1 to Reaction rolls.';   
             break; 
         case 13: case 14: case 15:

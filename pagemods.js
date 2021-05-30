@@ -25,7 +25,6 @@ function createFeaturesButtons() {
             let tempscore = i;
 
             newbutton.onclick = () => { removeFeatureDie(tempscore) };
-            newbutton.onclick = () => { showBackgroundOptions() };
 
             console.log("Made a new button to drop a " + i);
 
@@ -39,10 +38,18 @@ function createFeaturesButtons() {
 function removeFeatureDie(num) {
     featDice[num] -= 1;     // Remove a feature die from the array.
     console.log("Removing a die from category " + num);
+
+    showBackgroundOptions();
+
+    document.getElementById('finalfeatures').innerHTML = "Your Features will be rolled and shown here! Under construction. It will be very exciting, though, I promise! SUPER exciting. If it works. <br><br><br>";
+
+    // Since a die is discarded, clear the setup.
+
+    clearFeaturesSetup();
 }
 
 
-function removeFeatureChoiceText() {
+function clearFeaturesSetup() {
 
     // Removes the div element which contains the setup and instructions for Feature dice and Backgrounds.    
     
@@ -63,7 +70,6 @@ function removeBackgrounds() {
 // You will need a function to generate the actual Features. (But how will they modify stats and lists? Each a separate function?)
 // Or can they be coded as classes which feed an object and do stuff?
 
-// You will also need a function for choosing a Background.
 
 
 // Creates a button for choosing a Background of 'backgroundtype', adding it to the backgroundButtonsTable.
@@ -101,8 +107,6 @@ function showBackgroundOptions() {
 
 function chooseBackground(backgroundtype) {
 
-    console.log("CHOOSING BACKGROUND NOW!!!");
-
     let oldtable = document.getElementById('backgroundButtonsTable');
 
     switch(backgroundtype) {
@@ -111,14 +115,16 @@ function chooseBackground(backgroundtype) {
             document.getElementById('backgrounddetails').innerHTML = "You are a Brawler. You hit people. <br><br><br>";
             // Adjust other stats and fields.
                 // Perhaps there will be an "addEquipment()" function which gets called here.
-                // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.         
+                // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            document.getElementById('hitdice').innerText += ', d6';         
             break;
         case 'Initiated':
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Ooh, yeah! Spooky! But actually you don't know shit. <br><br><br>";
             // Adjust other stats and fields.
                     // Perhaps there will be an "addEquipment()" function which gets called here.
-                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.         
+                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.  
+            document.getElementById('hitdice').innerText += ', d4'; // Initiated characters have a smaller hit die.       
             break;
         case 'Marksman':
             // New description replaces instruction text.
@@ -126,20 +132,26 @@ function chooseBackground(backgroundtype) {
             // Adjust other stats and fields.
                 // Perhaps there will be an "addEquipment()" function which gets called here.
                 // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            document.getElementById('hitdice').innerText += ', d6';         
             break;
         case 'Tough':
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "It's hard to hurt you. But sure is fun to try! <br><br><br>";
             // Adjust other stats and fields.
                     // Perhaps there will be an "addEquipment()" function which gets called here.
-                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.      
+                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            document.getElementById('hitdice').innerText += ', d8'; // Tough character get a larger hit die.      
             break;
         case 'Trained':
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "You grow up rich or something? Yeah, you sure turned out well... <br><br><br>";
-            // Adjust other stats and fields.
+            // Adjust Defend value..
+            let defendValue = parseInt(document.getElementById('defend').innerText);
+            defendValue++;
+            document.getElementById('defend').innerText = defendValue;
                     // Perhaps there will be an "addEquipment()" function which gets called here.
                     // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            document.getElementById('hitdice').innerText += ', d6';         
             break;
         case 'Scoundrel':
             // New description replaces instruction text.
@@ -147,6 +159,7 @@ function chooseBackground(backgroundtype) {
             // Adjust other stats and fields.
                 // Perhaps there will be an "addEquipment()" function which gets called here.
                 // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            document.getElementById('hitdice').innerText += ', d6';         
             break;
         default:
             console.log("None of the backgrounds were chosen.");
@@ -155,3 +168,26 @@ function chooseBackground(backgroundtype) {
     // Remove the buttons.
     oldtable.remove();
 }
+
+// This function activates when someone doesn't discard a Feature die.
+
+function movingOn() {
+    // There will lots here eventually!
+
+    document.getElementById('finalfeatures').innerHTML = "Your Features will be rolled and shown here! Under construction. It will be very exciting, though, I promise! SUPER exciting. If it works. <br><br><br>";
+
+    // A function for rolling the Features, mostly. It can be triggered here or when you drop a Feature die.
+
+    clearFeaturesSetup();
+
+    // Since this character hasn't chosen a Background, we add a d6 to their hit dice.
+    document.getElementById('hitdice').innerText += ', d6';         
+}
+
+// This function rolls up the character's Features.
+
+function rollFinalFeatures() {
+    // Call the function to delete the old container.
+    // This should add Features to the new one.
+}
+
