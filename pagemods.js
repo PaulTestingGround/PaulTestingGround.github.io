@@ -174,7 +174,10 @@ function chooseBackground(backgroundtype) {
             break;
         case 'Scoundrel':
             // New description replaces instruction text.
-            document.getElementById('backgrounddetails').innerHTML = "You are a Scoundrel. Seriously, you suck. Big Time. <br><br><br>";
+            document.getElementById('backgrounddetails').innerHTML = "Scoundrel: perhaps you were a street urchin, a criminal, or a mendicant. " +
+                "You are perfectly at ease on dark streets, in the company of thieves, or even in the fabled flesh markets of Khazangol. You know how to " +
+                "locate contacts, find a fence, and identify gang territory. You are also skilled in misdirection, able to create opportunities " +
+                "to make items disappear or to pick someone's pockets. You start with a set of files and lockpicks and a knife in your boot. <br><br><br>";
             // Adjust other stats and fields.
                 // Perhaps there will be an "addEquipment()" function which gets called here.
                 // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
