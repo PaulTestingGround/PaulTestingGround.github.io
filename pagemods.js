@@ -145,7 +145,7 @@ function chooseBackground(backgroundtype) {
         case 'Trained':
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "You grow up rich or something? Yeah, you sure turned out well... <br><br><br>";
-            // Adjust Defend value..
+            // Adjust Defend value. (This should probably be a separate function, to keep things clean. Maybe a generic one, for any 'id'?)
             let defendValue = parseInt(document.getElementById('defend').innerText);
             defendValue++;
             document.getElementById('defend').innerText = defendValue;
@@ -181,6 +181,7 @@ function movingOn() {
     clearFeaturesSetup();
 
     // Since this character hasn't chosen a Background, we add a d6 to their hit dice.
+    
     document.getElementById('hitdice').innerText += ', d6';         
 }
 
