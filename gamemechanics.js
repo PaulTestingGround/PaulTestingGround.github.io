@@ -100,8 +100,11 @@ function sortFeatDice(featureArray) {
                 featTypeString = 'featdice' + (featType);
 
                 document.getElementById(featTypeString).innerText += featType + ',' + '\xa0';
-
-                // You'll also need to increment the Features array (create it globally).
+                
+                // Attempting to get a picture in there!
+                // const diepicture = "<img src="Die6.png" alt='6'></img>"
+                // document.getElementById(featTypeString).innerHTML = "<img src="Die6.png" alt='6'></img>"
+                // You will have to try this elsewhere!!!
             }
         }
 
@@ -217,4 +220,12 @@ function checkBackgrounds() {
 
     document.getElementById('backgroundoptions').innerText += '\xa0' + 'Scoundrel.)';
     createBackgroundButton('Scoundrel');
+}
+
+// Generic function to adjust secondary stats. Use for numbers.
+
+function adjustSomething(id, mod) {
+    let tempValue = parseInt(document.getElementById(id).innerText);
+    tempValue += mod;
+    document.getElementById(id).innerText = tempValue;
 }

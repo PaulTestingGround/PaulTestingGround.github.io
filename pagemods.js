@@ -112,43 +112,62 @@ function chooseBackground(backgroundtype) {
     switch(backgroundtype) {
         case 'Brawler':
             // New description replaces instruction text.
-            document.getElementById('backgrounddetails').innerHTML = "You are a Brawler. You hit people. <br><br><br>";
+            document.getElementById('backgrounddetails').innerHTML = "Brawler: you've been in quite a few fights, and you don't hold back. " +
+                "You start with an intimidating weapon and your Attack is one point higher (both included below). <br><br><br>";
             // Adjust other stats and fields.
+            adjustSomething('attack', 1);
                 // Perhaps there will be an "addEquipment()" function which gets called here.
                 // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
             document.getElementById('hitdice').innerText += ', d6';         
             break;
         case 'Initiated':
             // New description replaces instruction text.
-            document.getElementById('backgrounddetails').innerHTML = "Ooh, yeah! Spooky! But actually you don't know shit. <br><br><br>";
+            document.getElementById('backgrounddetails').innerHTML = "Initiated: you apprenticed with an Arcanist, or a Conclave scholar, " +
+                "who initiated you into the mysteries of thaumic distortion. You have learned the complex and soul-bending exercise of  " +
+                "wresting an eidolon to your will. Your starting hit die is a d4 (included below). <br><br><br>";
             // Adjust other stats and fields.
                     // Perhaps there will be an "addEquipment()" function which gets called here.
                     // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.  
-            document.getElementById('hitdice').innerText += ', d4'; // Initiated characters have a smaller hit die.       
+            document.getElementById('hitdice').innerText += ', d4';      
             break;
         case 'Marksman':
             // New description replaces instruction text.
-            document.getElementById('backgrounddetails').innerHTML = "Yeah, you're all sharp and stuff. Hope you know how to run! <br><br><br>";
+            document.getElementById('backgrounddetails').innerHTML = "Marksman: you have an exceptionally steady hand. You start with a missile " +
+                "weapon, and when you attack an enemy at a distance, you take +2 to your Attack rating (included below). <br><br><br>";
             // Adjust other stats and fields.
+            switch (dex) {
+                case 13: case 14: case 15:
+                    document.getElementById('attackcommentary').innerText = "+3 with missile weapons";
+                    break;
+                case 16: case 17:
+                    document.getElementById('attackcommentary').innerText = "+4 with missile weapons";
+                    break;
+                case 18:
+                    document.getElementById('attackcommentary').innerText = "+5 with missile weapons";
+                    break;
+                default:
+                    document.getElementById('attackcommentary').innerText = "+2 with missile weapons";
+            }
                 // Perhaps there will be an "addEquipment()" function which gets called here.
                 // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
             document.getElementById('hitdice').innerText += ', d6';         
             break;
         case 'Tough':
             // New description replaces instruction text.
-            document.getElementById('backgrounddetails').innerHTML = "It's hard to hurt you. But sure is fun to try! <br><br><br>";
+            document.getElementById('backgrounddetails').innerHTML = "Tough: you've been wounded before, and you know how to handle it. " +
+                "Your starting hit die is a d8 (included below), and you know how to deal with injuries and provide first aid. <br><br><br>";
             // Adjust other stats and fields.
-                    // Perhaps there will be an "addEquipment()" function which gets called here.
+                    // Perhaps there will be an "addEquipment()" function which gets called here. Should it include some bandages and stuff?
                     // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
             document.getElementById('hitdice').innerText += ', d8'; // Tough character get a larger hit die.      
             break;
         case 'Trained':
             // New description replaces instruction text.
-            document.getElementById('backgrounddetails').innerHTML = "You grow up rich or something? Yeah, you sure turned out well... <br><br><br>";
-            // Adjust Defend value. (This should probably be a separate function, to keep things clean. Maybe a generic one, for any 'id'?)
-            let defendValue = parseInt(document.getElementById('defend').innerText);
-            defendValue++;
-            document.getElementById('defend').innerText = defendValue;
+            document.getElementById('backgrounddetails').innerHTML = "Trained: you were trained by a swordmaster or someone similar - " +
+                "your footwork is excellent and you know how to weave, parry, and riposte. You start with an elegant weapon, and your  " +
+                "Defend is one point higher (both included below). <br><br><br>";
+            // Adjust Defend value. 
+            adjustSomething('defend', 1);
                     // Perhaps there will be an "addEquipment()" function which gets called here.
                     // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
             document.getElementById('hitdice').innerText += ', d6';         
@@ -181,7 +200,7 @@ function movingOn() {
     clearFeaturesSetup();
 
     // Since this character hasn't chosen a Background, we add a d6 to their hit dice.
-    
+
     document.getElementById('hitdice').innerText += ', d6';         
 }
 
@@ -192,3 +211,11 @@ function rollFinalFeatures() {
     // This should add Features to the new one.
 }
 
+
+function addEquipment(item) {
+    // Add equipment!
+}
+
+function addEthericFormulae(numberAdded) {
+    // Add spells!
+}
