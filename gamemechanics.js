@@ -77,8 +77,6 @@ function rollFeatures(numOfFeats) {
 
 function sortFeatDice(featureArray) {
 
-    // Would it make sense to make an array of all the places these should end up?
-
     let featTypeString = 'featdice';
 
     for (let featType = 1; featType < 7; featType++) {
@@ -96,10 +94,6 @@ function sortFeatDice(featureArray) {
                 console.log("Found a " + featType + ".");
 
                 countAFeatureDie(featType);
-
-                featTypeString = 'featdice' + (featType);
-
-                document.getElementById(featTypeString).innerText += featType + ',' + '\xa0';
                 
                 // Attempting to get a picture in there!
                 // const diepicture = "<img src="Die6.png" alt='6'></img>"
@@ -120,28 +114,19 @@ function sortFeatDice(featureArray) {
 function countAFeatureDie(type) {
     featDice[type] += 1; 
     console.log("Adding a die to the Features array. Now the array reads: " + featDice);
+
+    console.log("Creating a dice image to add!");
+    const dieImage = `<img src='Die${type}.png'></img>`;
+    let featTypeString = 'featdice' + type;
+    document.getElementById(featTypeString).innerHTML += dieImage;
+
 }
 
 function cleanFeatDice() {
     
     // Removes extra commas.
 
-    let featTypeString = 'featdice';
-
-    for (let i = 1; i < 7; i++) {
-
-        featTypeString = 'featdice' + i;
-
-        let currentDice = document.getElementById(featTypeString).innerText;
-
-        if (currentDice != '') {
-            // Removes final character.:
-            currentDice = currentDice.slice(0, -2);
-            document.getElementById(featTypeString).innerText = currentDice;
-        } 
-        
-        featTypeString = 'featdice';
-    }
+    // Not necessary in this version. Old version has the code!
 
 }
 
