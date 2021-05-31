@@ -43,9 +43,15 @@ function removeFeatureDie(num) {
 
     document.getElementById('finalfeatures').innerHTML = "Your Features will be rolled and shown here! Under construction. It will be very exciting, though, I promise! SUPER exciting. If it works. <br><br><br>";
 
-    // Since a die is discarded, clear the setup.
+    // Since a die is discarded, clear the setup:
 
     clearFeaturesSetup();
+
+    // Make a note if there are no Features:
+
+    if (_.sum(featDice) == 0) {
+        document.getElementById('finalfeatures').innerHTML = "This character has no special Features, having chosen a Background instead.";
+    }
 }
 
 
