@@ -94,11 +94,6 @@ function sortFeatDice(featureArray) {
                 console.log("Found a " + featType + ".");
 
                 countAFeatureDie(featType);
-                
-                // Attempting to get a picture in there!
-                // const diepicture = "<img src="Die6.png" alt='6'></img>"
-                // document.getElementById(featTypeString).innerHTML = "<img src="Die6.png" alt='6'></img>"
-                // You will have to try this elsewhere!!!
             }
         }
 
@@ -115,18 +110,10 @@ function countAFeatureDie(type) {
     featDice[type] += 1; 
     console.log("Adding a die to the Features array. Now the array reads: " + featDice);
 
-    console.log("Creating a dice image to add!");
+    // Add an image of a die to the appropriate row.
     const dieImage = `<img src='Die${type}.png'></img>`;
     let featTypeString = 'featdice' + type;
     document.getElementById(featTypeString).innerHTML += dieImage;
-
-}
-
-function cleanFeatDice() {
-    
-    // Removes extra commas.
-
-    // Not necessary in this version. Old version has the code!
 
 }
 
