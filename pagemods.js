@@ -36,6 +36,7 @@ function createFeaturesButtons() {
 }
 
 function removeFeatureDie(num) {
+
     featDice[num] -= 1;     // Remove a feature die from the array.
     console.log("Removing a die from category " + num);
 
@@ -161,7 +162,8 @@ function chooseBackground(backgroundtype) {
         case 'Tough':
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Tough: you've been wounded before, and you know how to handle it. " +
-                "Your starting hit die is a d8 (included below), and you know how to deal with injuries and provide first aid. <br><br><br>";
+                "Your starting hit die is a d8 (included below), and you know how to deal with serious injuries and infection. You start " +
+                "with a bag of splints, bandages, herbs, and poultices. <br><br><br>";
             // Adjust other stats and fields.
                     // Perhaps there will be an "addEquipment()" function which gets called here. Should it include some bandages and stuff?
                     // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.

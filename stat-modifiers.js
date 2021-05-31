@@ -59,7 +59,7 @@ function wisBonuses(wis){
     
     switch(wis){
         case 3: case 4: case 5: case 6:
-            document.getElementById('wisCommentary').innerText = "You don't know how to ride a horse.";
+            document.getElementById('wisCommentary').innerText = "You don't know how to ride a horse, or how to provide first aid.";
             break;
         case 13: case 14: case 15:
             document.getElementById('wisCommentary').innerText = "The years have taught you how to steel your mind against curse or sorcery (+1 to Fate, included below).";
