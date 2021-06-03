@@ -22,7 +22,7 @@ function createFeaturesButtons() {
 
             // The button will call 'removeFeatureDie' with the appropriate index.
 
-            let tempscore = i;
+            let tempscore = i; // For some reason a direct call to 'i' always returns 7.
 
             newbutton.onclick = () => { removeFeatureDie(tempscore) };
 
@@ -109,6 +109,13 @@ function showBackgroundOptions() {
     backgroundsSection.style.display = 'block';
 }
 
+// This functions displays the Etheric Formulae section of the character sheet. 
+
+function showFormulae() {
+    let ethericFormulae = document.getElementById('formulae');
+    ethericFormulae.style.display = 'block';
+}
+
 
 // This function chooses a background, posts the info, and adjusts relevant stats or lists.
 
@@ -123,8 +130,9 @@ function chooseBackground(backgroundtype) {
                 "You start with an intimidating weapon and your Attack is one point higher (both included below). <br><br><br>";
             // Adjust other stats and fields.
             adjustSomething('attack', 1);
-                // Perhaps there will be an "addEquipment()" function which gets called here.
-                // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            // Intimidating weapon.
+            addEquipment(_.sample(seriousWeapons['intimidating weapons']), 'right');
+            // Basic hit die.
             document.getElementById('hitdice').innerText += ', d6';         
             break;
         case 'Initiated':
@@ -155,19 +163,22 @@ function chooseBackground(backgroundtype) {
                 default:
                     document.getElementById('attackcommentary').innerText = "+2 with missile weapons";
             }
-                // Perhaps there will be an "addEquipment()" function which gets called here.
-                // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            // Choose a missile weapon
+            let missiles = _.sampleSize(missileWeapons, 2);
+            let choicetext = 'your missile weapon: a ' + missiles.join(' or a ');
+            addEquipment(choicetext, 'right');
+            // Basic hit die. 
             document.getElementById('hitdice').innerText += ', d6';         
             break;
         case 'Tough':
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Tough: you've been wounded before, and you know how to handle it. " +
-                "Your starting hit die is a d8 (included below), and you know how to deal with serious injuries and infection. You start " +
-                "with a bag of splints, bandages, herbs, and poultices. <br><br><br>";
+                "Your starting hit die is a d8 (included below), and you know how to deal with serious injuries and infection. In addition, " +
+                "you don't need warmth and comfort as a condition for healing rolls. <br><br><br>";
             // Adjust other stats and fields.
                     // Perhaps there will be an "addEquipment()" function which gets called here. Should it include some bandages and stuff?
                     // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
-            document.getElementById('hitdice').innerText += ', d8'; // Tough character get a larger hit die.      
+            document.getElementById('hitdice').innerText += ', d8'; // Tough characters get a larger hit die.      
             break;
         case 'Trained':
             // New description replaces instruction text.
@@ -176,8 +187,9 @@ function chooseBackground(backgroundtype) {
                 "Defend is one point higher (both included below). <br><br><br>";
             // Adjust Defend value. 
             adjustSomething('defend', 1);
-                    // Perhaps there will be an "addEquipment()" function which gets called here.
-                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+            // Your elegant weapon.
+            addEquipment(_.sample(elegantWeapons), 'right');
+            // Basic hit die.
             document.getElementById('hitdice').innerText += ', d6';         
             break;
         case 'Scoundrel':
@@ -185,10 +197,11 @@ function chooseBackground(backgroundtype) {
             document.getElementById('backgrounddetails').innerHTML = "Scoundrel: perhaps you were a street urchin, a criminal, or a mendicant. " +
                 "You are perfectly at ease on dark streets, in the company of thieves, or even in the fabled flesh markets of Khazangol. You know how to " +
                 "locate contacts, find a fence, and identify gang territory. You are also skilled in misdirection, able to create opportunities " +
-                "to make items disappear or to pick someone's pockets. You start with a set of files and lockpicks and a knife in your boot. <br><br><br>";
-            // Adjust other stats and fields.
-                // Perhaps there will be an "addEquipment()" function which gets called here.
-                // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
+                "to make items disappear or to pick someone's pockets. You start with a set of lockpicks and a knife in your boot. <br><br><br>";
+            // Additional equipment.
+            addEquipment('a set of lockpicks (skeleton keys, rake pick, torsion wrench)', 'right');
+            addEquipment('a knife in your boot', 'right');
+            // Basic hit die.
             document.getElementById('hitdice').innerText += ', d6';         
             break;
         default:
@@ -218,15 +231,46 @@ function movingOn() {
 // This function rolls up the character's Features.
 
 function rollFinalFeatures() {
-    // Call the function to delete the old container.
+    // Call the function to delete the old container. clearFeaturesSetup()?
     // This should add Features to the new one.
 }
 
+function addFateBonus(newtext) {
 
-function addEquipment(item) {
-    // Add equipment!
+    // Adds cicrumstantial bonuses to the 'fatecommentary' field.
+
+    fateBonuses.push(newtext);
+    document.getElementById('fatecommentary').innerText = fateBonuses.join(', ');
 }
 
+
+function addEquipment(item, position) {
+
+    // If there is no input, generates a random item.
+    
+    let newItem = document.createElement("LI");
+    let itemText;
+
+    if (item == undefined) {
+        itemText = document.createTextNode(_.sample(basicEquipment));
+    } else {
+        itemText = document.createTextNode(item);
+    }
+
+    newItem.appendChild(itemText);
+
+    if (position == 'right') {
+        document.getElementById('possessionslistright').appendChild(newItem);
+    } else {
+        document.getElementById('possessionslist').appendChild(newItem);
+    }
+    
+}
+
+
 function addEthericFormulae(numberAdded) {
+
+    showFormulae(); // Bring the formulae section online.
+
     // Add spells!
 }

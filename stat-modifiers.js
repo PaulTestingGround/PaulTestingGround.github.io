@@ -63,15 +63,15 @@ function wisBonuses(wis){
             break;
         case 13: case 14: case 15:
             document.getElementById('wisCommentary').innerText = "The years have taught you how to steel your mind against curse or sorcery (+1 to Fate, included below).";
-            document.getElementById('fatecommentary').innerText = "+1 against curse or sorcery";
+            addFateBonus('+1 against curse or sorcery');
             break;
         case 16: case 17:
             document.getElementById('wisCommentary').innerText = "The years have taught you how to steel your mind against curse or sorcery (+2 to Fate, included below).";
-            document.getElementById('fatecommentary').innerText = "+2 against curse or sorcery";
+            addFateBonus('+2 against curse or sorcery');
             break;
         case 18:
             document.getElementById('wisCommentary').innerText = "Patience and hardship have made your mind a fortress against curse or sorcery (+3 to Fate, included below)";
-            document.getElementById('fatecommentary').innerText = "+3 against curse or sorcery";
+            addFateBonus('+3 against curse or sorcery');
             break;
         default:
             document.getElementById('wisCommentary').innerText = '';
@@ -87,9 +87,8 @@ function dexBonuses(dex){
             document.getElementById('dexCommentary').innerText = "You don't know how to swim.";
             break;
         case 13: case 14: case 15:
-            document.getElementById('dexCommentary').innerText = "You are quick and nimble. (+1 with missile weapons, +1 to defend, included below)";
+            document.getElementById('dexCommentary').innerText = "You are quick and nimble. (+1 with missile weapons, included below)";
             document.getElementById('attackcommentary').innerText = "+1 with missile weapons";
-            adjustSomething('defend', 1);
             break;
         case 16: case 17:
             document.getElementById('dexCommentary').innerText = "You have the reflexes of a cat. (+2 with missile weapons, +1 to defend, included below)";

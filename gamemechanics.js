@@ -201,3 +201,35 @@ function adjustSomething(id, mod) {
     tempValue += mod;
     document.getElementById(id).innerText = tempValue;
 }
+
+
+function generateStartingEquipment() {
+
+    // Pocket equipment
+
+    let pocketStuff = _.sampleSize(pocketEquipment, 2);
+
+    for (const item in pocketStuff) {
+        addEquipment(pocketStuff[item]);
+    }
+
+/*     let pocketStuffFinal = pocketStuff.join(', '); // Separates entries with commas
+
+    addEquipment(pocketStuffFinal);
+ */
+
+    // Basic equipment
+
+    let basicStuff = _.sampleSize(basicEquipment, 3);
+
+    addEquipment(basicStuff[0]);
+    addEquipment(basicStuff[1]);
+    addEquipment(basicStuff[2], 'right');
+
+    // Basic weapon (first two lines add a label)
+
+    // let basicWeapon = _.sample(basicWeapons);
+    // addEquipment('a basic weapon: ' + basicWeapon, 'right');
+    addEquipment(_.sample(basicWeapons), 'right');
+
+}

@@ -166,8 +166,16 @@
 
      <div id='possessions'>
         <h2>Possessions</h2>
-        <div id='possessionslist'>Your possessions will be listed here.
-        </div>
+            <table class='possessions'>
+                <tr>
+                    <td>
+                        <ul id='possessionslist' class='possessions'></ul>
+                    </td>
+                    <td>
+                        <ul id='possessionslistright' class='possessions'></ul>
+                    </td>
+                </tr>    
+            </table>
     </div>
 
     <!-- Etheric Formulae -->
@@ -230,6 +238,11 @@
      p {
          font-size: 1.2rem;
      }
+     ul {
+         font-size: 1rem;
+         list-style: circle;
+         line-height: 1rem;
+     }
 
     /* Buttons */
 
@@ -254,17 +267,22 @@
         vertical-align: top;
         text-align: left;
     }
-    table td.oracle{
+    table td.oracle {
         width: 42em;
         padding-right: 50px;
         font-size: 1.2rem;
     }
-    table td.comments{
+    table td.comments {
         font-size: 1rem;
         font-style: italic;
         width: 40em;
         vertical-align: middle;
     }
+    table.possessions {
+        border-bottom: none;
+        width: 32em;
+        padding: 0;
+    } 
     table.header {
         border-bottom: none;
     }
@@ -284,7 +302,7 @@
     }
 
     
-    /* Images */
+    /* Images (for dice) */
 
     img {
         height: 20px;
@@ -311,9 +329,12 @@
     document.getElementById('equip').innerText = _.sampleSize(basicEquipment, 2);
     document.getElementById('magic').innerText = _.sampleSize(ethericFormulae, 2);
 
+    // Global variables.
+
     let stats = ['str', 'int', 'wis', 'dex', 'con', 'cha'];
     let statsTotal = 0;
     let featureDice = 0;
+    let fateBonuses = [];
 
     // Determine ability scores.
 
@@ -347,7 +368,7 @@
 
     let featDice = [0,0,0,0,0,0,0]; // Note that the index of the array corresponds to the type of die. Index 0 is always empty.
 
-    // Organize, display, and remove commas.
+    // Organize and display.
 
     sortFeatDice(featureDice);
 
@@ -370,18 +391,19 @@
             // Flatter the player for their lucky rolls!
             document.getElementById('finalfeatures').innerHTML = "You are an exceptionally gifted individual: " +
                 "a truly remarkable specimen of your kind. (Just look at that stat line! There are not many like you around.) " +
-                "Great deeds await you, for you are more capable than just about anyone you'll meet. <br><br>";
+                "Great deeds await you, for you have the potential to be more capable than just about anyone you'll meet. <br><br>";
             
             // The character gets some unusual or colourful detail.
-            document.getElementById('finalfeatures').innerHTML += _.sample(specialTraits); 
-            document.getElementById('finalfeatures').innerHTML += '<br><br><br>'; 
+            document.getElementById('finalfeatures').innerHTML += _.sample(specialTraits) + "<br><br><br>"; 
 
             // Add the default hit die.
             document.getElementById('hitdice').innerText += ', d6';   
         }
     }
-
+ 
     ifFeatures();
+
+    generateStartingEquipment();
 
     // Load is based on Strength.
 

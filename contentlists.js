@@ -51,21 +51,68 @@ let specialTraits = [
     'It is rumoured that you were the result of a virgin birth.',
     'You also have a rare and special expertise, as an engineer: you know a lot about siege weaponry, fortifications, stone-masonry, tunneling, and map-making.',
     'You once created an artwork, or wrote a book, which has since taken on a life of its own.',
-    'You have an excellent relationship with the region\'s most notable priest, priestess, shaman, prophet, or oracle.',
+    'You have an excellent relationship with the most notable local religious figure: a priest, priestess, shaman, prophet, or oracle.',
     'You know a famous craftsman, craftswoman, or inventor.',
     'You know a loremaster, who may divulge or research useful information.',
-    'You are on good terms with someone powerful: perhaps the local Lord, Lady, Commander, or Mayor.',
+    'You are on good terms with someone powerful: perhaps the local Lord, Lady, Commander, Mayor, or Sheriff.',
     'You are the descendant of a renowned warlord or tyrant, killer of many.',
     'You know a highly-placed member of the Conclave, a mysterious and powerful organization that controls occult knowledge.'
 ]
 
+let pocketEquipment = [
+    'a bedroll',
+    'a few pieces of dried meat',
+    'a waterskin (full)',
+    'a torch, flint, and steel',
+    'a backpack'
+]
+
 let basicEquipment = [
-    ' a hat',
-    ' a barrel',
-    ' a pumpkin',
-    ' a ball-peen hammer',
-    ' a bag of sex toys (lightly used)',
-    ' a mighty battle axe'
+    // Extras
+    'a mask (somber or decorative; hides your identity)',
+    'a winter cloak',
+    // 6
+    'a vial of writing ink, quills, and parchment',
+    'a whistle',
+    'a spyglass',
+    'a smoking pipe (and pipeweed)',
+    'a small buckler (shield)',
+    'a shovel',
+    // 5
+    'provisions, cured (10 meals)',
+    'a vial of perfume',
+    'a flask of oil',
+    'a mirror and set of lenses',
+    'a set of metal files',
+    'a magnetic compass',
+    // 4
+    'a hunter\'s horn',
+    'a pair of iron tongs',
+    'a jar of grease',
+    'a hooded lantern',
+    'a pair of leather gloves, thick',
+    'a leather coat, thick, with protective padding',
+    // 3
+    'a fishing net',
+    'a pouch of glass marbles (20)',
+    'a grappling hook and 20\' of thick rope',
+    'a healer\'s kit (bandages, strong liquor, herbs, and poultices)',
+    'a pair of high boots, well-made',
+    'an iron helmet',
+    // 2
+    'an iron chain (10 ft)',
+    'a chisel and a small hammer',
+    'climbing gear (50 ft of silk rope, pitons, and spikes)',
+    'a coinpurse with a bit of money (2d6+5 silver coins)',
+    'a crowbar',
+    'a costume of fine clothes',
+    // 1
+    'a map of the area',
+    'a small bell',
+    'a bone flute',
+    'a book of lore and legends',
+    'a box of chalks',
+    'a bucket or cooking pot',
 ]
 
 let ethericFormulae = [
@@ -112,7 +159,7 @@ let FEATURES = {
 }
 
 let basicWeapons = [
-    'a cudgel',
+    'a shod cudgel',
     'a dagger',
     'a sickle',
     'a scythe',
@@ -121,7 +168,7 @@ let basicWeapons = [
     'a farmer\'s flail',
     'a hammer',
     'a hatchet',
-    'a hunter\;s bow (and a dozen arrows)',
+    'a hunter\'s bow (and a dozen arrows)',
     'a pitchfork',
     'a wooden staff',
     'a wood-splitting axe',
@@ -131,44 +178,55 @@ let basicWeapons = [
     'a short spear',
 ]
 
-let seriousWeapons = [
-    'spiked gauntlet',
-    'flanged mace',
-    'morningstar',
-    'battleaxe',
-    'battle pike',
-    'crossbow',
-    'war hammer',
-    'heavy flail',
-    'spiked flail',
-    'rapier',
-    'trident',
-    'scimitar',
-    'longsword',
-    'broadsword',
-    'falchion',
-    'halberd',
-    'poleaxe',
-    'greatsword',
-    'maul',
-    'zweihander',
-    'sabre',
-    'khopesh',
-    'war club',
-    'lance',
-    'mancatcher',
-    'longspear'
-]
+let seriousWeapons = {
+    'intimidating weapons': [
+        'a spiked gauntlet',
+        'a morningstar',
+        'a battleaxe',
+        'a battle pike',
+        'a spiked flail',
+        'a halberd',
+        'a greatsword',
+        'a maul',
+        'a zweihander',
+        'a war club',
+        'a weighted chain',
+    ],
+    'others' : [
+        'a heavy flail',
+        'a flanged mace',
+        'a war hammer',
+        'a trident',
+        'a scimitar',
+        'a longsword',
+        'a broadsword',
+        'a falchion',
+        'a poleaxe',
+        'a khopesh',
+        'a lance',
+        'a mancatcher',
+        'a longspear',
+        'a cat-gutter (short sword)',
+    ]
+}
 
 let missileWeapons = [
     'crossbow',
     'heavy crossbow',
     'trio of javelins',
     'longbow',
-    'recurve bow',
-    'throwing knives (5)',
+    'recurved bow',
+    'brace of throwing knives (5)',
     'pair of throwing axes',
     'sling and stones'
+]
+
+let elegantWeapons = [
+        'a rapier',
+        'a cavalry sabre',
+        'a dueling knife, long',
+        'a slim, jewel-hilted sword',
+        'a curved, single-edged sword',
 ]
 
 let armorTypes = [
@@ -180,7 +238,7 @@ let armorTypes = [
     'chain mail (medium)',
     'a gambeson or \'padded jack\' (light)',
     'hauberk (chain shirt, medium)',
-    'plate mail (heavy)',
+    'steel plate mail (heavy)',
     'scale mail (medium)',
     'steel cuirass (medium)',
     'cuir bouilli (light)',
