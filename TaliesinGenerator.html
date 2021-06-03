@@ -369,10 +369,12 @@
             console.log("There is no Background to choose; removing that section.");
             // Flatter the player for their lucky rolls!
             document.getElementById('finalfeatures').innerHTML = "You are an exceptionally gifted individual: " +
-                "a remarkable specimen of your kind. (Just look at that stat line! There are not many like you around.) " +
-                "Great deeds await you, for you are more capable than just about anyone you'll meet. <br><br><br>";
+                "a truly remarkable specimen of your kind. (Just look at that stat line! There are not many like you around.) " +
+                "Great deeds await you, for you are more capable than just about anyone you'll meet. <br><br>";
             
-            // Add a function here to generate a special note about the character. Being a noble, for example.
+            // The character gets some unusual or colourful detail.
+            document.getElementById('finalfeatures').innerHTML += _.sample(specialTraits); 
+            document.getElementById('finalfeatures').innerHTML += '<br><br><br>'; 
 
             // Add the default hit die.
             document.getElementById('hitdice').innerText += ', d6';   
