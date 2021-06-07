@@ -63,7 +63,9 @@
     <!-- Features -->
 
     <h2>Features</h2>
-    <div id="finalfeatures"></div>
+    <div id="finalfeatures">
+        <ul id='finalfeatureslist'></ul>
+    </div>
     <div id='featuresetup' class='featuresetup'>
     <table class='featdice' id='featurestable'>
         <tr>
@@ -319,6 +321,7 @@
 <script src="contentlists.js"></script>
 <script src="stat-modifiers.js"></script>
 <script src="pagemods.js"></script>
+<script src="Features.js"></script>
 
 <!-- Code for updating the page dynamically. -->
 
@@ -390,7 +393,7 @@
             console.log("There is no Background to choose; removing that section.");
             // Flatter the player for their lucky rolls!
             document.getElementById('finalfeatures').innerHTML = "You are an exceptionally gifted individual: " +
-                "a truly remarkable specimen of your kind. (Just look at that stat line! There are not many like you around.) " +
+                "a truly remarkable specimen of your kind. There are not many like you around! " +
                 "Great deeds await you, for you have the potential to be more capable than just about anyone you'll meet. <br><br>";
             
             // The character gets some unusual or colourful detail.

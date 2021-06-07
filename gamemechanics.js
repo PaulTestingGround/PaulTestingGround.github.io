@@ -77,8 +77,6 @@ function rollFeatures(numOfFeats) {
 
 function sortFeatDice(featureArray) {
 
-    let featTypeString = 'featdice';
-
     for (let featType = 1; featType < 7; featType++) {
 
         // Check for each number in turn
@@ -96,9 +94,6 @@ function sortFeatDice(featureArray) {
                 countAFeatureDie(featType);
             }
         }
-
-        featTypeString = 'featdice';
-
     }
 
 
@@ -124,25 +119,25 @@ function defineLoad(str) {
     let strvalue = parseInt(str);
 
     if (strvalue < 4){
-        document.getElementById("load").innerText += " 1";
-    }
-    if (strvalue > 3 && strvalue < 6){
         document.getElementById("load").innerText += " 2";
     }
-    if (strvalue > 5 && strvalue < 9){
+    if (strvalue > 3 && strvalue < 6){
         document.getElementById("load").innerText += " 3";
     }
-    if (strvalue > 8 && strvalue < 13){
+    if (strvalue > 5 && strvalue < 9){
         document.getElementById("load").innerText += " 4";
     }
-    if (strvalue > 12 && strvalue < 16){
+    if (strvalue > 8 && strvalue < 13){
         document.getElementById("load").innerText += " 5";
     }
-    if (strvalue > 15 && strvalue < 18){
+    if (strvalue > 12 && strvalue < 16){
         document.getElementById("load").innerText += " 6";
     }
-    if (strvalue == 18){
+    if (strvalue > 15 && strvalue < 18){
         document.getElementById("load").innerText += " 7";
+    }
+    if (strvalue == 18){
+        document.getElementById("load").innerText += " 8";
     }
 }
 
@@ -233,3 +228,5 @@ function generateStartingEquipment() {
     addEquipment(_.sample(basicWeapons), 'right');
 
 }
+
+

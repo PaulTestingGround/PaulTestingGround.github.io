@@ -42,7 +42,7 @@ function removeFeatureDie(num) {
 
     showBackgroundOptions();
 
-    document.getElementById('finalfeatures').innerHTML = "Your Features will be rolled and shown here! Under construction. It will be very exciting, though, I promise! SUPER exciting. If it works. <br><br><br>";
+    document.getElementById('finalfeatures').innerHTML = "Your Features will be rolled and shown here! Under construction. It will be very exciting, though, I promise! SUPER exciting. If it works. <br>";
 
     // Since a die is discarded, clear the setup:
 
@@ -73,9 +73,6 @@ function removeBackgrounds() {
 
     unwantedSection.remove();
 }
-
-// You will need a function to generate the actual Features. (But how will they modify stats and lists? Each a separate function?)
-// Or can they be coded as classes which feed an object and do stuff?
 
 
 
@@ -140,9 +137,7 @@ function chooseBackground(backgroundtype) {
             document.getElementById('backgrounddetails').innerHTML = "Initiated: you apprenticed with an Arcanist, or a Conclave scholar, " +
                 "who initiated you into the mysteries of thaumic distortion. You have learned the complex and soul-bending exercise of  " +
                 "wresting an eidolon to your will. Your starting hit die is a d4 (included below). <br><br><br>";
-            // Adjust other stats and fields.
-                    // Perhaps there will be an "addEquipment()" function which gets called here.
-                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.  
+            // Lower hit die.
             document.getElementById('hitdice').innerText += ', d4';      
             break;
         case 'Marksman':
@@ -163,10 +158,14 @@ function chooseBackground(backgroundtype) {
                 default:
                     document.getElementById('attackcommentary').innerText = "+2 with missile weapons";
             }
-            // Choose a missile weapon
-            let missiles = _.sampleSize(missileWeapons, 2);
+
+            // Old Version
+/*             let missiles = _.sampleSize(missileWeapons, 2);
             let choicetext = 'your missile weapon: a ' + missiles.join(' or a ');
-            addEquipment(choicetext, 'right');
+            addEquipment(choicetext, 'right'); */
+
+            //Your missile weapon.
+            addEquipment(_.sample(missileWeapons), 'right');
             // Basic hit die. 
             document.getElementById('hitdice').innerText += ', d6';         
             break;
@@ -175,10 +174,8 @@ function chooseBackground(backgroundtype) {
             document.getElementById('backgrounddetails').innerHTML = "Tough: you've been wounded before, and you know how to handle it. " +
                 "Your starting hit die is a d8 (included below), and you know how to deal with serious injuries and infection. In addition, " +
                 "you don't need warmth and comfort as a condition for healing rolls. <br><br><br>";
-            // Adjust other stats and fields.
-                    // Perhaps there will be an "addEquipment()" function which gets called here. Should it include some bandages and stuff?
-                    // And an "add Fate bonuses" one, which checks if there is already something, then adds a "," and the new bonus.
-            document.getElementById('hitdice').innerText += ', d8'; // Tough characters get a larger hit die.      
+            // Tough characters get a larger hit die.      
+            document.getElementById('hitdice').innerText += ', d8';     
             break;
         case 'Trained':
             // New description replaces instruction text.
@@ -237,7 +234,7 @@ function rollFinalFeatures() {
 
 function addFateBonus(newtext) {
 
-    // Adds cicrumstantial bonuses to the 'fatecommentary' field.
+    // Adds circumstantial bonuses to the 'fatecommentary' field, separated by commas.
 
     fateBonuses.push(newtext);
     document.getElementById('fatecommentary').innerText = fateBonuses.join(', ');
@@ -245,11 +242,11 @@ function addFateBonus(newtext) {
 
 
 function addEquipment(item, position) {
-
-    // If there is no input, generates a random item.
     
     let newItem = document.createElement("LI");
     let itemText;
+
+    // If there is no text, it generates a random new item.
 
     if (item == undefined) {
         itemText = document.createTextNode(_.sample(basicEquipment));
@@ -268,7 +265,7 @@ function addEquipment(item, position) {
 }
 
 
-function addEthericFormulae(numberAdded) {
+function addEthericFormulae(type, numberAdded) {
 
     showFormulae(); // Bring the formulae section online.
 
