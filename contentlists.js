@@ -12,13 +12,13 @@ let characterTraits = [
     'You are wary and sharp: you are no one\'s fool.',
     'You know that nothing can escape your watchful gaze and inquisitive mind.',
     'You are willing to do anything it takes to get what you want.',
-    'You know that you are nimble and plucky: always in the right place at the right time.',
+    'Always in the right place at the right time.',
     'You are filled with dread at what is to come.',
     'You know that you are the one who should be in charge.',
     'You seek redemption: to be forgiven for what you have done or failed to do.',
     'For those evils your hand can avenge, you are prepared to seek justice.',
     'You are learned and worldly, unlike the lot amongst whom you find yourself.',
-    'You know very well that you are smooth, charming, and silver-tongued.',
+    'You know how others see you: smooth, charming, and silver-tongued.',
     'You worry that your heart is dark and rotten.',
     'You are filled with lightness, joy, and hope for the future, despite all that has come to pass.',
     'Death makes her home in your heart... none will challenge you without regretting it.',
@@ -43,7 +43,7 @@ let characterTraits = [
 let specialTraits = [
     'Perhaps you are an exiled noble, trying to regain your honour.',
     'Perhaps you are an exotic foreigner: lost in a storm, your ship wrecked upon these shores.',
-    'Perhaps you are an assistant to an Imperial researcher, sent here on a quest to collect data for the Imperial Library; if so, you might carry a letter of proof and a leatherskin sketchbook.',
+    'Perhaps you were an assistant to an Imperial researcher, sent here on a quest to collect data for the Imperial Library; if so, you might carry a letter of proof and a leatherskin sketchbook.',
     'Perhaps you are the heir to a major throne, on a quest to prove yourself before you return home to claim it.',
     'Perhaps you are a barbarian prince or princess, far from home, heir to a proud but waning heritage.',
     'Perhaps you are the last of your kind...',
@@ -69,8 +69,8 @@ let pocketEquipment = [
 
 let basicEquipment = [
     // Extras
-    'a mask (somber or decorative; hides your identity)',
-    'a winter cloak',
+    'a mask (plain, somber, or decorative)',
+    'a warm, thick cloak',
     // 6
     'a vial of writing ink, quills, and parchment',
     'a whistle',
@@ -97,7 +97,7 @@ let basicEquipment = [
     'a pouch of glass marbles (20)',
     'a grappling hook and 20\' of thick rope',
     'a healer\'s kit (bandages, strong liquor, herbs, and poultices)',
-    'a pair of high boots, well-made',
+    'a pair of high boots, sturdy and well-made',
     'an iron helmet',
     // 2
     'an iron chain (10 ft)',
@@ -105,13 +105,13 @@ let basicEquipment = [
     'climbing gear (50 ft of silk rope, pitons, and spikes)',
     'a coinpurse with a bit of money (2d6+5 silver coins)',
     'a crowbar',
-    'a costume of fine clothes',
+    'fine clothes, according to your fashion',
     // 1
     'a map of the area',
     'a small bell',
     'a bone flute',
     'a book of lore and legends',
-    'a box of chalks',
+    'a box of chalk',
     'a bucket or cooking pot',
 ]
 
@@ -123,40 +123,6 @@ let ethericFormulae = [
     ' A Tentacular Expository',
     ' Otiluke\'s Frozen Scrotum'
 ]
-
-let FEATURES = {
-    'A most particular expertise': [
-        'Crafty and clever', 
-        'Former priest',
-        'Woodsman',
-        'Cypherer',
-        'Languages',
-        'Former military'],
-    'A nose for danger': [
-        'Double-jointed',
-        'Something was watching you',
-        'Heightened sense of smell',
-        'Slitted eyes',
-        'Inner compass',
-        'Demon touch'],
-    'Well equipped': [
-        'You have everything you need for adventuring',
-        'You have the support of someone well-to-do',
-        'You have a set of locks, keys, and manacles',
-        'You ransacked an armoury once',
-        'You are dressed like a noble',
-        'You are outfitted for war'],
-    'Tough as Nails': [
-        'Hard cock'],
-    'The Gods Smile Upon You': [
-        'Smiling at the size of your tits'],
-    'Touched by the Beyond': [
-        'weird shit',
-        'weirder still'],
-    'Beyond Weird': [
-        'homunculus and shit',
-        'lots of formulae']
-}
 
 let basicWeapons = [
     'a shod cudgel',
@@ -190,7 +156,8 @@ let seriousWeapons = {
         'a maul',
         'a zweihander',
         'a war club',
-        'a weighted chain',
+        'a length of weighted chain, spiked',
+        'a poleaxe',
     ],
     'others' : [
         'a heavy flail',
@@ -198,10 +165,9 @@ let seriousWeapons = {
         'a war hammer',
         'a trident',
         'a scimitar',
-        'a longsword',
-        'a broadsword',
+        'a bastard sword',
+        'an arming sword',
         'a falchion',
-        'a poleaxe',
         'a khopesh',
         'a lance',
         'a mancatcher',
@@ -211,14 +177,14 @@ let seriousWeapons = {
 }
 
 let missileWeapons = [
-    'crossbow',
-    'heavy crossbow',
-    'trio of javelins',
-    'longbow',
-    'recurved bow',
-    'brace of throwing knives (5)',
-    'pair of throwing axes',
-    'sling and stones'
+    'a crossbow',
+    'a heavy crossbow',
+    'a trio of javelins',
+    'a longbow',
+    'a recurved bow',
+    'a brace of throwing knives (5)',
+    'a pair of throwing axes',
+    'a sling and stones'
 ]
 
 let elegantWeapons = [
