@@ -330,7 +330,7 @@ let weirdFeatures = [
         addFeatureText(`You know the name of a powerful demon. With a proper ritual, you may be able to summon it.`);
     },
     function() {
-        addFeatureText(`You have the hands of a healer: perform a ritual over a companion, and roll either Wisdom or Charisma. Tell them to roll Constitution. For each successful roll, they regain one hit point. You can only use this on others, and only once per day on any particular person.`);
+        addFeatureText(`For centuries, your ancestors guarded the secrets of life energy. Perform a ritual over a companion, and roll either Wisdom or Charisma. Tell them to roll Constitution. For each successful roll, they regain one hit point. You can only use this on others, and only once per day on any particular person.`);
     },
     function() {
         addFeatureText(`Homunculus: you may disgorge a small creature from your body, but it leaves you weakened. Take 1d6 damage; that's how many hit points it has. If that brings you to 0, you are weak to the point of being unable to stand or walk. When it returns you can consume it: you will know what it experienced and regain hit points equal to its current total, minus one. The creature has limited intelligence, but can obey basic commands.`);
