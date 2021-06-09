@@ -271,7 +271,7 @@ let toughFeatures = [
         addFateBonus(`+4 to avoid death`);
     },
     function() {
-        addFeatureText(`Troll blood runs through your veins, they say: take +1 to Fate (included below) and you have advantage on any Constitution rolls (including healing).`);
+        addFeatureText(`Troll blood runs through your veins, they say: take +1 to Fate (included below) and you have advantage on any Constitution rolls related to healing.`);
         adjustSomething('fate', 1);
         console.log('Increased Fate by one for troll blood.');
     },
