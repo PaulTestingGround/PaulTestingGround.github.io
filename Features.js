@@ -258,7 +258,7 @@ let toughFeatures = [
         console.log('Increased Fate by two for perfect teeth.');
     },
     function() {
-        addFeatureText(`You are covered in scars, and either missing an ear, a finger, or a good number of teeth. (+2 Fate, included below)`);
+        addFeatureText(`You are covered in scars, and either missing an ear, your nose, or a good number of teeth. (+2 Fate, included below)`);
         adjustSomething('fate', 2);
         console.log('Increased Fate by two for scars.');
     },
