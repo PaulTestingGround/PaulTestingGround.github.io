@@ -42,17 +42,21 @@ function removeFeatureDie(num) {
 
     showBackgroundOptions();
 
-    document.getElementById('finalfeatures').innerHTML = "Your Features will be rolled and shown here! Under construction. It will be very exciting, though, I promise! SUPER exciting. If it works. <br>";
-
     // Since a die is discarded, clear the setup:
 
     clearFeaturesSetup();
+
+    // Show the final features area.
+
+    showFinalFeatures();
 
     // Make a note if there are no Features:
 
     if (_.sum(featDice) == 0) {
         document.getElementById('finalfeatures').innerHTML = "This character has no special Features, having chosen a Background instead.";
-    }
+    } else {
+        rollFinalFeatures(featDice); // Generates the Features (see 'Features.js').
+    }   
 }
 
 
@@ -113,6 +117,12 @@ function showFormulae() {
     ethericFormulae.style.display = 'block';
 }
 
+function showFinalFeatures() {
+    let finalFeaturesSection = document.getElementById('finalfeatures');
+    finalFeaturesSection.style.display = 'block';
+    console.log('***** Showing the Final Features section!!! ******');
+}
+
 
 // This function chooses a background, posts the info, and adjusts relevant stats or lists.
 
@@ -124,7 +134,7 @@ function chooseBackground(backgroundtype) {
         case 'Brawler':
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Brawler: you've been in quite a few fights, and you don't hold back. " +
-                "You start with an intimidating weapon and your Attack is one point higher (both included below). <br><br><br>";
+                "You start with an intimidating weapon and your Attack is one point higher (both included below). <br><br>";
             // Adjust other stats and fields.
             adjustSomething('attack', 1);
             // Intimidating weapon.
@@ -136,14 +146,14 @@ function chooseBackground(backgroundtype) {
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Initiated: you apprenticed with an Arcanist, or a Conclave scholar, " +
                 "who initiated you into the mysteries of thaumic distortion. You have learned the complex and soul-bending exercise of  " +
-                "wresting an eidolon to your will. Your starting hit die is a d4 (included below). <br><br><br>";
+                "wresting an eidolon to your will. Your starting hit die is a d4 (included below). <br><br>";
             // Lower hit die.
             document.getElementById('hitdice').innerText += ', d4';      
             break;
         case 'Marksman':
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Marksman: you have an exceptionally steady hand. You start with a missile " +
-                "weapon, and when you attack an enemy at a distance, you take +2 to your Attack rating (included below). <br><br><br>";
+                "weapon, and when you attack an enemy at a distance, you take +2 to your Attack rating (included below). <br><br>";
             // Adjust other stats and fields.
             switch (dex) {
                 case 13: case 14: case 15:
@@ -173,7 +183,7 @@ function chooseBackground(backgroundtype) {
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Tough: you've been wounded before, and you know how to handle it. " +
                 "Your starting hit die is a d8 (included below), and you know how to deal with serious injuries and infection. In addition, " +
-                "you don't need warmth and comfort as a condition for healing rolls. <br><br><br>";
+                "you don't need warmth and comfort as a condition for healing rolls. <br><br>";
             // Tough characters get a larger hit die.      
             document.getElementById('hitdice').innerText += ', d8';     
             break;
@@ -181,7 +191,7 @@ function chooseBackground(backgroundtype) {
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Trained: you were trained by a swordmaster or someone similar - " +
                 "your footwork is excellent and you know how to weave, parry, and riposte. You start with an elegant weapon, and your  " +
-                "Defend is one point higher (both included below). <br><br><br>";
+                "Defend is one point higher (both included below). <br><br>";
             // Adjust Defend value. 
             adjustSomething('defend', 1);
             // Your elegant weapon.
@@ -194,7 +204,7 @@ function chooseBackground(backgroundtype) {
             document.getElementById('backgrounddetails').innerHTML = "Scoundrel: perhaps you were a street urchin, a criminal, or a mendicant. " +
                 "You are perfectly at ease on dark streets, in the company of thieves, or even in the fabled flesh markets of Khazangol. You know how to " +
                 "locate contacts, find a fence, and identify gang territory. You are also skilled in misdirection, able to create opportunities " +
-                "to make items disappear or to pick someone's pockets. You start with a set of lockpicks and a knife in your boot. <br><br><br>";
+                "to make items disappear or to pick someone's pockets. You start with a set of lockpicks and a knife in your boot. <br><br>";
             // Additional equipment.
             addEquipment('a set of lockpicks (skeleton keys, rake pick, torsion wrench)', 'right');
             addEquipment('a knife in your boot', 'right');
@@ -212,13 +222,18 @@ function chooseBackground(backgroundtype) {
 // This function activates when someone doesn't discard a Feature die.
 
 function movingOn() {
-    // There will lots here eventually!
-
-    document.getElementById('finalfeatures').innerHTML = "Your Features will be rolled and shown here! Under construction. It will be very exciting, though, I promise! SUPER exciting. If it works. <br><br><br>";
-
-    // A function for rolling the Features, mostly. It can be triggered here or when you drop a Feature die.
+    
+    // Clear the old Features setup area.
 
     clearFeaturesSetup();
+
+    // Show the final features are.
+
+    showFinalFeatures();
+
+    // Generate the Features (see 'Features.js').
+
+    rollFinalFeatures(featDice);
 
     // Since this character hasn't chosen a Background, we add a d6 to their hit dice.
 
@@ -265,9 +280,27 @@ function addEquipment(item, position) {
 }
 
 
-function addEthericFormulae(type, numberAdded) {
+function addEthericFormulae(numberAdded, type) {
 
     showFormulae(); // Bring the formulae section online.
 
     // Add spells!
+
+    let formulae;
+
+    switch (type) {
+        case 'Flawed':
+            formulae = _.sampleSize(flawedFormulae, numberAdded);
+            break;
+        default:
+            formulae = _.sampleSize(ethericFormulae, numberAdded);
+    }
+
+    for (i = 0; i < numberAdded; i++) {
+        let newFormula = document.createElement("LI");
+        let currentFormula = formulae[i];
+        let formulaText = document.createTextNode(currentFormula);
+        newFormula.appendChild(formulaText);
+        document.getElementById('formulaelist').appendChild(newFormula);
+    }
 }

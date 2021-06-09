@@ -63,8 +63,8 @@
     <!-- Features -->
 
     <h2>Features</h2>
-    <div id="finalfeatures">
-        <ul id='finalfeatureslist'></ul>
+    <div id="finalfeatures" class='finalfeatures'>
+        <ul id='finalfeatureslist' class='finalfeatures'></ul>
     </div>
     <div id='featuresetup' class='featuresetup'>
     <table class='featdice' id='featurestable'>
@@ -139,6 +139,7 @@
 
      <!-- The secondary statistics -->
 
+    <br>
     <table class='secondary'>
          <tr>
              <td>Fate:</td>
@@ -184,17 +185,7 @@
 
     <div id='formulae' class='formulae'>
         <h2>Etheric Formulae</h2>
-        <div id='backgrounddetails'>If your character has any etheric formulae, they will be listed here. This is normally hidden.
-        </div>
-    </div>
-
-    <!-- Old stuff -->
-
-    <div class='backgrounds'>
-     <div>You are carrying:</div>
-     <p id="equip">Your equipment will go here.</p>
-     <div>You know the following spells:</div>
-     <p id="magic">Your spells will go here.</p>
+            <ul id='formulaelist'></ul>
     </div>
 
      <!-- Miscellany -->
@@ -237,15 +228,22 @@
      div.formulae {
          display: none;
      }
+     div.finalfeatures {
+         display: none;
+     }
      p {
          font-size: 1.2rem;
      }
      ul {
          font-size: 1rem;
          list-style: circle;
-         line-height: 1rem;
-     }
-
+         line-height: 112%;
+    }
+    ul.finalfeatures {
+         font-size: 1rem;
+         line-height: 120%;
+    }
+ 
     /* Buttons */
 
     button {
@@ -328,9 +326,6 @@
 <script>
 
     document.getElementById('copy').innerHTML = _.sample(characterTraits); // The top line "oracle".
-    
-    document.getElementById('equip').innerText = _.sampleSize(basicEquipment, 2);
-    document.getElementById('magic').innerText = _.sampleSize(ethericFormulae, 2);
 
     // Global variables.
 
@@ -388,6 +383,7 @@
     function ifFeatures() {
         if (featureDice == 0) {
             clearFeaturesSetup();
+            showFinalFeatures();
             console.log("There are no Feature dice.");
             removeBackgrounds();
             console.log("There is no Background to choose; removing that section.");
@@ -397,7 +393,7 @@
                 "Great deeds await you, for you have the potential to be more capable than just about anyone you'll meet. <br><br>";
             
             // The character gets some unusual or colourful detail.
-            document.getElementById('finalfeatures').innerHTML += _.sample(specialTraits) + "<br><br><br>"; 
+            document.getElementById('finalfeatures').innerHTML += _.sample(specialTraits) + "<br><br>"; 
 
             // Add the default hit die.
             document.getElementById('hitdice').innerText += ', d6';   

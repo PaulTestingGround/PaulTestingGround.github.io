@@ -30,7 +30,7 @@ let characterTraits = [
     'You know that true beauty shines out from inside you.',
     'The anger inside drives you, indomitable and true, like an arrow to your prey\'s heart.',
     'You are meant for great deeds, to uncover lost secrets, and to bring light into dark places.',
-    'You, alone, carry gloom and despair: wrapped around you like winter\'s cloak.',
+    'Gloom and despair is e\'er your burden, wrapped \'round you like winter\'s cloak.',
     'You meet the challenges of life with stoicism and quiet, steadfast courage.',
     'You are possessed of a quick wit and a disarming smile.',
     'Your instincts, intuition, and imagination always lead you to the truth.',
@@ -116,12 +116,20 @@ let basicEquipment = [
 ]
 
 let ethericFormulae = [
-    ' Transfer Wounds',
-    ' A Wizard\'s Candle',
-    ' Nuclear Sex Explosion',
-    ' Light Dem All on Fiah',
-    ' A Tentacular Expository',
-    ' Otiluke\'s Frozen Scrotum'
+    'A Demonic Covenant',
+    'Otiluke\'s Bewitchment',
+    'A Chariot of Air',
+    'Obsecration',
+    'A Subterranean Gullet',
+    'Plasmic Manipulation',
+    'An Ethereal Boundary',
+]
+
+let flawedFormulae = [
+    'The Serpent\'s Kiss (Flawed)',
+    'Gaze of Fascination (Unruly)',
+    'The Assassin\'s Numen (Flawed)',
+    'Soul Transference (Flawed)'
 ]
 
 let basicWeapons = [
@@ -196,25 +204,25 @@ let elegantWeapons = [
 ]
 
 let armorTypes = [
-    'lamellar armor (medium)',
-    'banded mail (medium)',
-    'leather buff coat (light)',
-    'brigandine armor (medium)',
-    'a coat of plates (heavy)',
-    'chain mail (medium)',
-    'a gambeson or \'padded jack\' (light)',
-    'hauberk (chain shirt, medium)',
-    'steel plate mail (heavy)',
-    'scale mail (medium)',
-    'steel cuirass (medium)',
-    'cuir bouilli (light)',
-    'animal hide armor (light)',
-    'great lizard skin armor (light)',
-    'bronze hoplite armor (medium)',
-    'bone armor (light)',
-    'bronze banded mail (medium)',
-    'lacquered steel plate mail (heavy)',
-    'tortoise or insect carapace armor (light or medium)',
-    'bronze breastplate, engraved (medium)',
-    'ceramic plates and stitched wood (medium)'
+    'lamellar armor',
+    'banded mail',
+    'leather buff coat',
+    'brigandine armor',
+    'a coat of plates',
+    'chain mail',
+    'a gambeson or \'padded jack\'',
+    'hauberk (chain shirt)',
+    'steel plate mail',
+    'scale mail',
+    'a steel cuirass',
+    'cuir bouilli armor',
+    'animal hide armor',
+    'great lizard skin armor',
+    'bronze hoplite armor',
+    'bone armor',
+    'bronze banded mail',
+    'lacquered steel plate mail',
+    'tortoise or insect carapace armor',
+    'bronze breastplate, engraved',
+    'ceramic plates and stitched wood'
 ]
