@@ -7,7 +7,7 @@ let characterTraits = [
     'You are here to right the wrongs of the wicked, and to save the innocent.',
     'Whether in blood or in spirit, you know you were truly born noble.',
     'You\'ve seen worse than this: darkness, terror, and madness.',
-    'You believe you are meant for greatness, fame, and to sit upon a throne.',
+    'You believe you are meant for greatness, fame, and to sit upon a high throne.',
     'You know, deep inside, that you are doomed to die, to rot, to be forgotten.',
     'You are wary and sharp: you are no one\'s fool.',
     'You know that nothing can escape your watchful gaze and inquisitive mind.',
