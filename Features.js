@@ -166,7 +166,7 @@ let expertiseFeatures = [
         addFeatureText('You know all sorts of weird signals, fonts, cyphers, and codes. Given enough time to study, you can decipher most messages or missives.');
     },
     function() {
-        addFeatureText('You know and speak a number of languages. Roll Intelligence when you encounter a new language to see if you can understand it.');
+        addFeatureText('You know and speak a number of languages. Roll Intelligence when you encounter a new language to see if you can understand it. (You may end up knowing far more languages than your Intelligence suggests.)');
     },
     function() {
         addFeatureText(`You are a former member of a military outfit, with a knowledge of strategy and military protocol. You carry a few things from your past (choose below).`); 
