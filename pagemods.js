@@ -120,7 +120,6 @@ function showFormulae() {
 function showFinalFeatures() {
     let finalFeaturesSection = document.getElementById('finalfeatures');
     finalFeaturesSection.style.display = 'block';
-    console.log('***** Showing the Final Features section!!! ******');
 }
 
 

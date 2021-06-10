@@ -214,7 +214,7 @@ let equippedFeatures = [
     function() {
         addFeatureText(`You have the support of someone well-to-do. You have a suit of armour and a sack of silver.`);
         addEquipment('a sack of silver (3d6+20 coins)');
-        addEquipment(_.sample(armorTypes) + ' (light or medium)', 'right');
+        addEquipment(_.sample(armorTypes), 'right');
     },
     function() {
         addFeatureText(`You have a set of locks, keys, chains, a pair of manacles, and a bear trap, plus meat for bait.`);
@@ -240,7 +240,7 @@ let equippedFeatures = [
     function() {
         addFeatureText(`You're outfitted for war. You start with a military weapon and either a suit of armour or a heavy shield.`);
         addEquipment(_.sample(_.sample(seriousWeapons)), 'right');
-        addEquipment('choose: ' + _.sample(armorTypes) + ' (light, medium, or heavy) or a heavy shield (+3 to Defend, clumsy)');
+        addEquipment('choose: ' + _.sample(armorTypes) + ' or a heavy shield (+3 to Defend, clumsy)');
     },
 ] 
 
