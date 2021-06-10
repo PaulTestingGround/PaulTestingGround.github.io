@@ -198,7 +198,7 @@ let missileWeapons = [
 let elegantWeapons = [
         'a rapier',
         'a cavalry sabre',
-        'a dueling knife, long',
+        'a long-bladed dueling knife',
         'a slim, jewel-hilted sword',
         'a curved, single-edged sword',
 ]
@@ -211,7 +211,7 @@ let armorTypes = [
     'a coat of plates',
     'chain mail',
     'a gambeson or \'padded jack\'',
-    'hauberk (chain shirt)',
+    'a hauberk (chain shirt)',
     'steel plate mail',
     'scale mail',
     'a steel cuirass',
@@ -223,6 +223,6 @@ let armorTypes = [
     'bronze banded mail',
     'lacquered steel plate mail',
     'tortoise or insect carapace armor',
-    'bronze breastplate, engraved',
+    'a bronze breastplate, engraved',
     'ceramic plates and stitched wood'
 ]

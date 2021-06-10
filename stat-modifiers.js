@@ -62,15 +62,15 @@ function wisBonuses(wis){
             document.getElementById('wisCommentary').innerText = "You don't know how to ride a horse, or how to provide first aid.";
             break;
         case 13: case 14: case 15:
-            document.getElementById('wisCommentary').innerText = "The years have taught you how to steel your mind against curse or sorcery (+1 to Fate, included below).";
+            document.getElementById('wisCommentary').innerText = "The years have taught you how to steel your mind against curse or sorcery. (+1 to Fate, included below)";
             addFateBonus('+1 against curse or sorcery');
             break;
         case 16: case 17:
-            document.getElementById('wisCommentary').innerText = "The years have taught you how to steel your mind against curse or sorcery (+2 to Fate, included below).";
+            document.getElementById('wisCommentary').innerText = "The years have taught you how to steel your mind against curse or sorcery. (+2 to Fate, included below)";
             addFateBonus('+2 against curse or sorcery');
             break;
         case 18:
-            document.getElementById('wisCommentary').innerText = "Patience and hardship have made your mind a fortress against curse or sorcery (+3 to Fate, included below)";
+            document.getElementById('wisCommentary').innerText = "Patience and hardship have made your mind a fortress against curse or sorcery. (+3 to Fate, included below)";
             addFateBonus('+3 against curse or sorcery');
             break;
         default:
