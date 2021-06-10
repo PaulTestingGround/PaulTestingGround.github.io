@@ -32,7 +32,7 @@ let characterTraits = [
     'You are meant for great deeds, to uncover lost secrets, and to bring light into dark places.',
     'Gloom and despair is e\'er your burden, wrapped \'round you like winter\'s cloak.',
     'You meet the challenges of life with stoicism and quiet, steadfast courage.',
-    'You are possessed of a quick wit and a disarming smile.',
+    'You are possessed of a quick wit and a disarming smile: always with a ready word on your lips.',
     'Your instincts, intuition, and imagination always lead you to the truth.',
     'Your ambitious spirit drives you: no barrier is insurmountable.',
     'It is only your relentless vigilance that keeps you and your companions alive.',
