@@ -37,7 +37,12 @@ let characterTraits = [
     'Your ambitious spirit drives you: no barrier is insurmountable.',
     'It is only your relentless vigilance that keeps you and your companions alive.',
     'Subtlety and stealth, that is the way to the top of the mountain.',
-    'You are not who you seem.'
+    'You are not who you seem.',
+    'You are an exotic foreigner; not from these parts.',
+    'So much of your past is shrouded in mystery - lost in the mists of your clouded mind.',
+    'Society used to call you a \'lunatic\'. They will learn.',
+    'The civilized life was once very foreign to you. In many ways, it still is.',
+    'Fortune-telling, omens, and simple divination: everything carries a message for you.',
 ]
 
 let specialTraits = [
