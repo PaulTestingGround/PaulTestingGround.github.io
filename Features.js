@@ -163,7 +163,11 @@ let expertiseFeatures = [
         addFeatureText('You were a woodsman, hunter, or woodcutter: you know how to track, hunt, and gather food in the wild.');
     },
     function() {
-        addFeatureText('You know all sorts of weird signals, fonts, cyphers, and codes. Given enough time to study, you can decipher most messages or missives.');
+        if (int < 9) {
+            addFeatureText('You know all sorts of weird signals, fonts, cyphers, and codes. Given enough time to study, you can decipher most messages or missives. You are also some kind of idiot savant: stubbornly adamant that you cannot read or write normal language!');
+        } else {
+            addFeatureText('You know all sorts of weird signals, fonts, cyphers, and codes. Given enough time to study, you can decipher most messages or missives.');
+        }
     },
     function() {
         addFeatureText('You know and speak a number of languages. Roll Intelligence when you encounter a new language to see if you can understand it. (You may end up knowing far more languages than your Intelligence suggests.)');

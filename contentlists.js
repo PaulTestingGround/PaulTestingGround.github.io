@@ -224,5 +224,5 @@ let armorTypes = [
     'lacquered steel plate mail',
     'tortoise or insect carapace armor',
     'a bronze breastplate, engraved',
-    'ceramic plates and stitched wood'
+    'a suit of ceramic plates and stitched wood'
 ]
