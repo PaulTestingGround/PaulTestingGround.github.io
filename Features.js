@@ -342,18 +342,22 @@ let weirdFeatures = [
     function() {
         addFeatureText(`You carry a stone tablet describing a rare and arcane etheric formula.`);
         addEthericFormulae(1);
+        addEquipment('a stone tablet, full of arcane secrets');
     },
     function() {
         addFeatureText(`You carry a heavy scroll case containing the ritual instructions for an arcane etheric formula.`);
         addEthericFormulae(1);
+        addEquipment('a heavy scroll case, inscribed with runes');
     },
     function() {
         addFeatureText(`You carry an antique tome describing two rare etheric formulae. You were warned not to use them.`);
         addEthericFormulae(2, 'Flawed');
+        addEquipment('an antique tome, full of arcane secrets');
     },
     function() {
         addFeatureText(`You carry a set of bronze plates, engraved with two rare etheric formulae. You were warned not to use them.`);
         addEthericFormulae(2, 'Flawed');
+        addEquipment('a set of bronze plates, inscribed with symbols');
     }   
 ]
 
