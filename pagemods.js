@@ -169,7 +169,7 @@ function chooseBackground(backgroundtype) {
             }
 
             // Old Version
-/*             let missiles = _.sampleSize(missileWeapons, 2);
+/*          let missiles = _.sampleSize(missileWeapons, 2);
             let choicetext = 'your missile weapon: a ' + missiles.join(' or a ');
             addEquipment(choicetext, 'right'); */
 
@@ -239,12 +239,6 @@ function movingOn() {
     document.getElementById('hitdice').innerText += ', d6';         
 }
 
-// This function rolls up the character's Features.
-
-function rollFinalFeatures() {
-    // Call the function to delete the old container. clearFeaturesSetup()?
-    // This should add Features to the new one.
-}
 
 function addFateBonus(newtext) {
 
