@@ -9,7 +9,7 @@ let characterTraits = [
     'You\'ve seen worse than this: darkness, terror, and madness.',
     'You believe you are meant for greatness, fame, and to sit upon a high throne.',
     'You know, deep inside, that you are doomed to die, to rot, to be forgotten.',
-    'You are wary and sharp: you are no one\'s fool.',
+    'Ever wary and sharp, you are no one\'s fool.',
     'You know that nothing can escape your watchful gaze and inquisitive mind.',
     'You are willing to do anything it takes to get what you want.',
     'Always in the right place at the right time.',
@@ -201,11 +201,11 @@ let missileWeapons = [
 ]
 
 let elegantWeapons = [
-        'a rapier',
-        'a cavalry sabre',
-        'a long-bladed dueling knife',
-        'a slim, jewel-hilted sword',
-        'a curved, single-edged sword',
+    'a rapier',
+    'a cavalry sabre',
+    'a long-bladed dueling knife',
+    'a slim, jewel-hilted sword',
+    'a curved, single-edged sword',
 ]
 
 let armorTypes = [

@@ -230,7 +230,7 @@ let equippedFeatures = [
         addFeatureText(`You ransacked an armoury once. You've brought a small arsenal of weapons with you.`);
         // Add the arsenal!
         addEquipment(_.sample(seriousWeapons['intimidating weapons']), 'right');
-        let regweapons = _.sampleSize(seriousWeapons['others'], 2); // An array to make sure there is no duplicate.
+        let regweapons = _.sampleSize(seriousWeapons['others'], 2); // An array to make sure there is no duplication.
         addEquipment(regweapons[0], 'right');
         addEquipment(regweapons[1], 'right');
         addEquipment(_.sample(missileWeapons), 'right');

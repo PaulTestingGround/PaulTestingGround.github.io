@@ -225,6 +225,7 @@ function generateStartingEquipment() {
 
     // let basicWeapon = _.sample(basicWeapons);
     // addEquipment('a basic weapon: ' + basicWeapon, 'right');
+    
     addEquipment(_.sample(basicWeapons), 'right');
 
 }
