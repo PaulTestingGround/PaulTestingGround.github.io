@@ -244,7 +244,7 @@ let equippedFeatures = [
     function() {
         addFeatureText(`You're outfitted for war. You start with a military weapon and either a suit of armour or a heavy shield.`);
         addEquipment(_.sample(_.sample(seriousWeapons)), 'right');
-        addEquipment('choose: ' + _.sample(armorTypes) + ' or a heavy shield (+3 to Defend, clumsy)');
+        addEquipment('choose: ' + _.sample(armorTypes) + ' (medium or heavy) or a heavy shield (+3 to Defend, clumsy)');
     },
 ] 
 
