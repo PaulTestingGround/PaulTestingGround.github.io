@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8">
+  <title>Taliesin D&D Character Generator</title>
+  <link rel="stylesheet" type="text/css" href="https://edwardtufte.github.io/tufte-css/tufte.css"/>
+ </head>
+
+ <!-- The layout of the page, and containers. -->
+
+ <body>
+     <h1>Your Character</h1>
+
+     <table class='header'>
+         <tr>
+             <td class='oracle'><h3 id="copy"></h3></td>
+             <td class='commentary'><div>Give your character a name:</div>
+                <input type="text" id="charname">
+                <button onclick="changeName()" value="">Click to name them.</button>
+            </td>
+         </tr>
+     </table>
+     
+     <!-- The ability scores. -->
+
+     <br>
+     <table class="attr">
+        <tbody>
+            <tr>
+                <td>Strength</td>
+                <td id='str'>__</td>
+                <td class='comments' id='strCommentary'></td>
+            </tr>
+            <tr>
+                <td>Intelligence</td>
+                <td id='int'>__</td>
+                <td class='comments' id='intCommentary'></td>
+            </tr>
+            <tr>
+                <td>Wisdom</td>
+                <td id='wis'>__</td>
+                <td class='comments' id='wisCommentary'></td>
+            </tr>
+            <tr>
+                <td>Dexterity</td>
+                <td id='dex'>__</td>
+                <td class='comments' id='dexCommentary'></td>
+            </tr>
+            <tr>
+                <td>Constitution</td>
+                <td id='con'>__</td>
+                <td class='comments' id='conCommentary'></td>
+            </tr>
+            <tr>
+                <td>Charisma</td>
+                <td id='cha'>__</td>
+                <td class='comments' id='chaCommentary'></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Features -->
+
+    <h2>Features</h2>
+    <div id="finalfeatures" class='finalfeatures'>
+        <ul id='finalfeatureslist' class='finalfeatures'></ul>
+    </div>
+    <div id='featuresetup' class='featuresetup'>
+    <table class='featdice' id='featurestable'>
+        <tr id='featurerow1' class='featurerows'>
+            <td>A Most Particular Expertise:</td>
+            <td id='featdice1'><img src='Nodice.png'></img></td>
+            <td></td>
+        </tr>
+        <tr id='featurerow2' class='featurerows'>
+            <td>A Nose for Danger:          </td>
+            <td id='featdice2'><img src='Nodice.png'></img></td>
+            <td></td>
+        </tr>
+        <tr id='featurerow3' class='featurerows'>
+            <td>Well Equipped:              </td>
+            <td id='featdice3'><img src='Nodice.png'></img></td>
+            <td></td>
+        </tr>
+        <tr id='featurerow4' class='featurerows'>
+            <td>Tough as Nails:             </td>
+            <td id='featdice4'><img src='Nodice.png'></img></td>
+            <td></td>
+        </tr>
+        <tr id='featurerow5' class='featurerows'>
+            <td>The Gods Smile Upon You:    </td>
+            <td id='featdice5'><img src='Nodice.png'></img></td>
+        </tr>
+        <tr id='featurerow6' class='featurerows'>
+            <td>Touched by the Beyond:      </td>
+            <td id='featdice6'><img src='Nodice.png'></img></td>
+        </tr>
+    </table>
+    <br>
+    <div>* If you'd like to choose a Background, choose one of your Feature dice to discard:</div>
+    <table id="featurebuttonsTable" class='header'>
+        <tbody>
+         <tr id='featurebuttons'></tr>
+        </tbody>
+    </table>
+    <div id='backgroundoptions' class='commentary'>(Note that if you do so, your available Background choices will be:</div>
+    <br>
+    <div>* If you'd like to keep all your Features, instead, click here:</div>
+    <table class='header'>
+        <tbody>
+        <tr><td><button onclick='movingOn()' value=''>No, thanks. Roll my Features!</button></td></tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <!-- The Backgrounds -->
+
+    <div id='backgrounds' class='backgrounds'>
+        <h2>Background</h2>
+        <div id='backgrounddetails'>
+            Brawler, Marksman, and Trained all give you another weapon to start with, so keep an eye on that if it matters to you.
+        </div>
+        <table id="backgroundButtonsTable" class='header'> <!-- This table is where the temporary buttons go. -->
+            <tbody>
+             <tr id='backgroundButtons'></tr>
+            </tbody>
+        </table>
+    </div>
+
+     <!-- The secondary statistics -->
+
+    <br>
+    <table class='secondary'>
+         <tr>
+             <td>Fate:</td>
+             <td id='fate'>8</td>
+             <td class='comments' id='fatecommentary'></td>
+         </tr>
+         <tr>
+             <td>Hit Dice:</td>
+             <td id='hitdice'>d4</td>
+             <td class='comments' id='hitdicecommentary'></td>
+         </tr>
+         <tr>
+            <td>Attack:</td>
+            <td id='attack'>11</td>
+            <td class='comments' id='attackcommentary'></td>
+        </tr>
+        <tr>
+            <td>Defend:</td>
+            <td id='defend'>11</td>
+            <td class='comments' id='defendcommentary'></td>
+         </tr>
+     </table>
+
+     <!-- Possessions -->
+
+     <div id='possessions'>
+        <h2>Possessions</h2>
+            <table class='possessions'>
+                <tr>
+                    <td>
+                        <ul id='possessionslist' class='possessions'></ul>
+                    </td>
+                    <td>
+                        <ul id='possessionslistright' class='possessions'></ul>
+                    </td>
+                </tr>    
+            </table>
+    </div>
+
+    <!-- Etheric Formulae -->
+
+    <div id='formulae' class='formulae'>
+        <h2>Etheric Formulae</h2>
+            <ul id='formulaelist'></ul>
+    </div>
+
+     <!-- Miscellany -->
+
+     <div id='miscellany' class='miscellany'>
+        <h2>Miscellany</h2>
+        <div id='miscellanydetails'>
+            <p id="load">Your max load is:</p>
+            <p id="future">Your future: you can go on to become a Vagabond</p>
+        </div>
+
+ </body>
+
+ <!-- CSS adjustments and formating. -->
+
+ <style>
+     .commentary {
+         font-size: 12px;
+         color: grey;
+         font-style: italic;
+     }
+     #backgroundoptions {
+         font-size: 15px;
+     }
+     h2 {
+         width: 26em;
+         text-align: center;
+         font-size: 1.7em;
+     }
+     h3 {
+         font-size: 1em;
+     }
+     div {
+         max-width: 50em;
+         width: 90%;
+     }
+     div.featuresetup {
+         max-width: 60em;
+     }
+     div.backgrounds {
+         display: none;
+     }
+     div.formulae {
+         display: none;
+     }
+     div.finalfeatures {
+         display: none;
+     }
+     p {
+         font-size: 1.2rem;
+     }
+     ul {
+         font-size: 1rem;
+         list-style: circle;
+         line-height: 112%;
+    }
+    ul.finalfeatures {
+         font-size: 1rem;
+         line-height: 120%;
+    }
+ 
+    /* Buttons */
+
+    button {
+        font-family: et-book, Palatino, sans-serif;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+        
+    /* Various Tables */
+
+    table {
+        padding: 0.5em;
+        border-bottom: 1px solid #333;
+        border-spacing: 0;
+        font-size: 1.7rem;
+    }
+    table td,
+    table th {
+        width: 8em;
+        vertical-align: top;
+        text-align: left;
+    }
+    table td.oracle {
+        width: 42em;
+        padding-right: 50px;
+        font-size: 1.2rem;
+    }
+    table td.comments {
+        font-size: 1rem;
+        font-style: italic;
+        width: 40em;
+        vertical-align: middle;
+    }
+    table.possessions {
+        border-bottom: none;
+        width: 32em;
+        padding: 0;
+    } 
+    table.header {
+        border-bottom: none;
+    }
+    table.attr {
+        border-top: 1px solid #333;
+    }
+    table.featdice {
+        border-bottom: none;
+        font-size: 18px;
+        width: 100%;
+    }
+    table.featdice td {
+        min-width: 15em;
+    }
+    table.secondary {
+        border-top: 1px solid #333;
+        font-size: 1.4rem;
+        width: 42em;
+        padding-right: 50px;
+    }
+    .featurerows {
+        display: none;
+    }
+
+    
+    /* Images (for dice) */
+
+    img {
+        height: 20px;
+        width: 20px;
+    }
+
+ </style>
+
+
+<!-- References to linked JS scripts.-->
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script src="gamemechanics.js"></script>
+<script src="contentlists.js"></script>
+<script src="stat-modifiers.js"></script>
+<script src="pagemods.js"></script>
+<script src="Features.js"></script>
+
+<!-- Code for updating the page dynamically. -->
+
+<script>
+
+    document.getElementById('copy').innerHTML = _.sample(characterTraits); // The top line "oracle".
+
+    // Global variables.
+
+    let stats = ['str', 'int', 'wis', 'dex', 'con', 'cha'];
+    let statsTotal = 0;
+    let featureDice = 0;
+    let fateBonuses = [];
+
+    // Determine ability scores.
+
+    for (const statName of stats) {
+        window[statName] = rollStat(); // creates a new global variable for each stat and its value.
+        console.log("Just declared a new variable called " + statName + ". Its value is " + window[statName] + ".");
+        document.getElementById(statName).innerText = window[statName];
+        statsTotal += window[statName];
+    }
+
+    // Determine ability modifiers. (Unfortunately, each function is different, so we can't iterate through 'stats'.)
+
+    strBonuses(str);
+    intBonuses(int);
+    wisBonuses(wis);
+    dexBonuses(dex);
+    conBonuses(con);
+    chaBonuses(cha);
+
+    // Calculate Feature dice. (Sets a total number, based on stats.)
+
+    for (const statName of stats){
+        getFeatureDice(window[statName]);
+    }
+
+    determineTotalFeatureDice(featureDice, statsTotal); // Adds an extra die if conditions are met.
+
+    featureDice = rollFeatures(featureDice); // "Rolls" the Feature dice.
+
+    // This array tracks Feature dice based on their roll:
+
+    let featDice = [0,0,0,0,0,0,0]; // Note that the index of the array corresponds to the type of die. Index 0 is always empty.
+
+    // Organize and display.
+
+    sortFeatDice(featureDice);
+
+    // Create buttons for the player's choice.
+
+    createFeaturesButtons();
+
+    // Add possible background choices.
+
+    checkBackgrounds();
+
+    // Remove text if there are no Feature dice.
+
+    function ifFeatures() {
+        if (featureDice == 0) {
+            clearFeaturesSetup();
+            showFinalFeatures();
+            console.log("There are no Feature dice.");
+            removeBackgrounds();
+            console.log("There is no Background to choose; removing that section.");
+            // Flatter the player for their lucky rolls!
+            document.getElementById('finalfeatures').innerHTML = "You are an exceptionally gifted individual: " +
+                "a truly remarkable specimen of your kind. There are not many like you around! " +
+                "Great deeds await you, for you have the potential to be more capable than just about anyone you'll meet. <br><br>";
+            
+            // The character gets some unusual or colourful detail.
+            document.getElementById('finalfeatures').innerHTML += _.sample(specialTraits) + "<br><br>"; 
+
+            // Add the default hit die.
+            document.getElementById('hitdice').innerText += ', d6';   
+        }
+    }
+ 
+    ifFeatures();
+
+    generateStartingEquipment();
+
+    // Load is based on Strength.
+
+    defineLoad(parseInt(document.getElementById('str').innerText));
+
+    // This functions changes the character's name.
+
+    function changeName(){
+        document.getElementsByTagName('h1')[0].innerHTML = document.getElementById('charname').value;
+    }
+
+    // This function determines the character's future.
+    
+    function listFuture(){
+
+        if (str > 8 && int < 11) {
+            document.getElementById('future').innerText += " or a Warrior.";
+        }
+        if (str < 9 && int < 11) {
+            document.getElementById('future').innerText = "Your future: you have always been, and will always remain, a Vagabond.";
+        }
+        if (str > 8 && int > 10) {
+            document.getElementById('future').innerText += ", a Warrior, or an Arcanist.";
+        }
+        if (str < 9 && int > 10) {
+            document.getElementById('future').innerText += " or an Arcanist.";
+        }
+    }
+
+    listFuture();
+
+</script>
