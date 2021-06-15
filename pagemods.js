@@ -168,7 +168,7 @@ function chooseBackground(backgroundtype) {
                     document.getElementById('attackcommentary').innerText = "+2 with missile weapons";
             }
 
-            // Old Version
+            // Old Version (offers a choice)
 /*          let missiles = _.sampleSize(missileWeapons, 2);
             let choicetext = 'your missile weapon: a ' + missiles.join(' or a ');
             addEquipment(choicetext, 'right'); */

@@ -110,6 +110,10 @@ function countAFeatureDie(type) {
     let featTypeString = 'featdice' + type;
     document.getElementById(featTypeString).innerHTML += dieImage;
 
+    // Display the row.
+    let rowNumber = 'featurerow' + type;
+    let currentRow = document.getElementById(rowNumber);
+    currentRow.style.display = 'block';
 }
 
 // Calculate carrying capacity.
