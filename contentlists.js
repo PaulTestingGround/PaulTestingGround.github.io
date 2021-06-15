@@ -10,7 +10,7 @@ let characterTraits = [
     'You believe you are meant for greatness, fame, and to sit upon a high throne.',
     'You know, deep inside, that you are doomed to die, to rot, to be forgotten.',
     'Ever wary and sharp, you are no one\'s fool.',
-    'You know that nothing can escape your watchful gaze and inquisitive mind.',
+    'Nothing escapes your watchful gaze and inquisitive mind.',
     'You are willing to do anything it takes to get what you want.',
     'Always in the right place at the right time.',
     'You are filled with dread at what is to come.',
