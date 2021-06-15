@@ -123,25 +123,25 @@ function defineLoad(str) {
     let strvalue = parseInt(str);
 
     if (strvalue < 4){
-        document.getElementById("load").innerText += " 2";
+        document.getElementById("load").innerText += " 3, max 4";
     }
     if (strvalue > 3 && strvalue < 6){
-        document.getElementById("load").innerText += " 3";
+        document.getElementById("load").innerText += " 4, max 6";
     }
     if (strvalue > 5 && strvalue < 9){
-        document.getElementById("load").innerText += " 4";
+        document.getElementById("load").innerText += " 5, max 7";
     }
     if (strvalue > 8 && strvalue < 13){
-        document.getElementById("load").innerText += " 5";
+        document.getElementById("load").innerText += " 6, max 8";
     }
     if (strvalue > 12 && strvalue < 16){
-        document.getElementById("load").innerText += " 6";
+        document.getElementById("load").innerText += " 7, max 9";
     }
     if (strvalue > 15 && strvalue < 18){
-        document.getElementById("load").innerText += " 7";
+        document.getElementById("load").innerText += " 8, max 10";
     }
     if (strvalue == 18){
-        document.getElementById("load").innerText += " 8";
+        document.getElementById("load").innerText += " 9, max 12";
     }
 }
 
