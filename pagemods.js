@@ -272,6 +272,17 @@ function addEquipment(item, position) {
     
 }
 
+function listFormulae() {
+
+    if (howManyFormulae > 0) {
+        addEthericFormulae(howManyFormulae);
+    }
+
+    if (howManyFlawedFormulae > 0) {
+        addEthericFormulae(howManyFlawedFormulae, 'Flawed');
+    }
+}
+
 
 function addEthericFormulae(numberAdded, type) {
 

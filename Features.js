@@ -46,6 +46,10 @@ function rollFinalFeatures(diceArray) {
         adjustSomething('fate', matches); // Increase the base Fate score appropriately.
         console.log('Increasing Fate by ' + matches + ' for matched Feature dice.');
     }
+
+    // Add etheric formulae, if necessary.
+
+    listFormulae();
 }
 
 function selectFeatures(currentValue, index) {
@@ -341,22 +345,22 @@ let weirdFeatures = [
     },
     function() {
         addFeatureText(`You carry a stone tablet describing a rare and arcane etheric formula.`);
-        addEthericFormulae(1);
+        howManyFormulae += 1;
         addEquipment('a stone tablet, engraved with arcane patterns');
     },
     function() {
         addFeatureText(`You carry a heavy scroll case containing the ritual instructions for an arcane etheric formula.`);
-        addEthericFormulae(1);
+        howManyFormulae += 1;
         addEquipment('a heavy scroll case, inscribed with runes');
     },
     function() {
         addFeatureText(`You carry an antique tome describing two rare etheric formulae. You were warned not to use them.`);
-        addEthericFormulae(2, 'Flawed');
+        howManyFlawedFormulae += 2;
         addEquipment('an antique tome, full of arcane scribbling');
     },
     function() {
         addFeatureText(`You carry a set of bronze plates, engraved with two rare etheric formulae. You were warned not to use them.`);
-        addEthericFormulae(2, 'Flawed');
+        howManyFlawedFormulae += 2;
         addEquipment('a set of bronze plates, scratched with symbols');
     }   
 ]

@@ -9,6 +9,9 @@
 function strBonuses(str){
     
     switch(str){
+        case 3: case 4: case 5:
+            document.getElementById('strCommentary').innerText = "You are very young, tiny, or feeble. You can't carry much.";
+            break;
         case 13: case 14: case 15:
             document.getElementById('strCommentary').innerText = "You're quite strong. +1 to damage with serious weapons.";
             break;
@@ -111,6 +114,7 @@ function conBonuses(con){
     
     switch(con){
         case 3: case 4: case 5: 
+            document.getElementById('conCommentary').innerText = 'You are old, frail, or sickly.';
             break;
         case 6: case 7: case 8:
             // Your Con die is a d4.

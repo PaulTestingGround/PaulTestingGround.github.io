@@ -125,7 +125,7 @@ let ethericFormulae = [
     'Otiluke\'s Bewitchment',
     'A Chariot of Air',
     'Obsecration',
-    'A Subterranean Gullet',
+    'A Subterranean Torrent',
     'Plasmic Manipulation',
     'An Ethereal Boundary',
 ]
@@ -134,7 +134,8 @@ let flawedFormulae = [
     'The Serpent\'s Kiss (Flawed)',
     'Gaze of Fascination (Unruly)',
     'The Assassin\'s Numen (Flawed)',
-    'Soul Transference (Flawed)'
+    'Soul Transference (Tainted)',
+    'Creeping Remnants (Tainted)'
 ]
 
 let basicWeapons = [

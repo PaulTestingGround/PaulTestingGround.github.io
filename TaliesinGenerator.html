@@ -193,7 +193,7 @@
      <div id='miscellany' class='miscellany'>
         <h2>Miscellany</h2>
         <div id='miscellanydetails'>
-            <p id="load">Your encumbered load (heavy items) is:</p>
+            <p id="load">You can carry</p>
             <p id="future">Your future: you can go on to become a Vagabond</p>
         </div>
 
@@ -342,6 +342,8 @@
     let statsTotal = 0;
     let featureDice = 0;
     let fateBonuses = [];
+    let howManyFormulae = 0; 
+    let howManyFlawedFormulae = 0;
 
     // Determine ability scores.
 
@@ -415,7 +417,7 @@
 
     // Load is based on Strength.
 
-    defineLoad(parseInt(document.getElementById('str').innerText));
+    defineLoad(str);
 
     // This functions changes the character's name.
 
