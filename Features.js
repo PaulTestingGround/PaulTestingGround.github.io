@@ -344,22 +344,38 @@ let weirdFeatures = [
         addFeatureText(`Homunculus: you may disgorge a small creature from your body, but it leaves you weakened. Take 1d6 damage; that's how many hit points it has. If that brings you to 0, you are weak to the point of being unable to stand or walk. When it returns you can consume it: you will know what it experienced and regain hit points equal to its current total, minus one. The creature has limited intelligence, but can obey basic commands.`);
     },
     function() {
-        addFeatureText(`You carry a stone tablet describing a rare and arcane etheric formula.`);
+        if (int < 9) {
+            addFeatureText(`You carry a stone tablet describing a rare and arcane etheric formula. Someone showed you how to follow the instructions therein.`);
+        } else {
+            addFeatureText(`You carry a stone tablet describing a rare and arcane etheric formula.`);
+        }
         howManyFormulae += 1;
         addEquipment('a stone tablet, engraved with arcane patterns');
     },
     function() {
-        addFeatureText(`You carry a heavy scroll case containing the ritual instructions for an arcane etheric formula.`);
+        if (int < 9) {
+            addFeatureText(`You carry a heavy scroll case containing the ritual instructions for an arcane etheric formula. Someone showed you how to follow the instructions therein.`);
+        } else {
+            addFeatureText(`You carry a heavy scroll case containing the ritual instructions for an arcane etheric formula.`);
+        }
         howManyFormulae += 1;
         addEquipment('a heavy scroll case, inscribed with runes');
     },
     function() {
-        addFeatureText(`You carry an antique tome describing two rare etheric formulae. You were warned not to use them.`);
+        if (int < 9) {
+            addFeatureText(`You carry an antique tome describing two rare etheric formulae. Someone showed you how to follow their instructions, but warned you not to use them.`);
+        } else {
+            addFeatureText(`You carry an antique tome describing two rare etheric formulae. You were warned not to use them.`);
+        }
         howManyFlawedFormulae += 2;
         addEquipment('an antique tome, full of arcane scribbling');
     },
     function() {
-        addFeatureText(`You carry a set of bronze plates, engraved with two rare etheric formulae. You were warned not to use them.`);
+        if (int < 9) {
+            addFeatureText(`You carry a set of bronze plates, engraved with two rare etheric formulae. Someone showed you how to follow their instructions, but warned you not to use them.`);
+        } else {
+            addFeatureText(`You carry a set of bronze plates, engraved with two rare etheric formulae. You were warned not to use them.`);
+        }
         howManyFlawedFormulae += 2;
         addEquipment('a set of bronze plates, scratched with symbols');
     }   
