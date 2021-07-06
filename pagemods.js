@@ -145,7 +145,7 @@ function chooseBackground(backgroundtype) {
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Initiated: you apprenticed with an Arcanist, or a Conclave scholar, " +
                 "who initiated you into the mysteries of thaumic distortion. You have learned the complex and soul-bending exercise of  " +
-                "wresting an eidolon to your will. Your starting hit die is a d4 (included below). <br><br>";
+                "wresting an etheric visitant to your will. Your starting hit die is a d4 (included below). <br><br>";
             // Lower hit die.
             document.getElementById('hitdice').innerText += ', d4';      
             break;
