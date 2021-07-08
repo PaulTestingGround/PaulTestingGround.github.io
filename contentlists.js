@@ -108,7 +108,7 @@ let basicEquipment = [
     'an iron chain (10 ft)',
     'a chisel and a small hammer',
     'climbing gear (50 ft of silk rope, pitons, and spikes)',
-    'a coinpurse with a bit of money (2d6+5 silver coins)',
+    'a coinpurse holding a peasant\'s life savings (2d6+5 silver coins)',
     'a crowbar',
     'fine clothes, according to your fashion',
     // 1
