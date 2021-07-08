@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8">
+  <title>Adventurer Profile</title>
+  <link rel="stylesheet" type="text/css" href="https://edwardtufte.github.io/tufte-css/tufte.css"/>
+ </head>
+
+ <body>
+     <div>
+        <h2>Your Adventurer's Profile</h2>
+        <div>
+            <p class='question'>Why are you doing this?</p>
+            <p id="purpose">Your purpose</p>
+            <p class='question'>What else do you know how to do?</p>
+            <p id="knowhow">Your knowhow</p>
+            <p class='question'>Who do you know around here?</p>
+            <p id="friends">Your friends</p>
+            <p id="note" class='question'>They consider you a friend (for whatever reason), and should be happy to perform reasonable favours for you within their area of expertise.</p>
+        </div>
+     </div>
+
+ </body>
+
+ <!-- CSS adjustments and formating. -->
+
+ <style>
+     h2 {
+         width: 26em;
+         text-align: center;
+         font-size: 1.7em;
+     }
+     div {
+         max-width: 50em;
+         width: 90%;
+     }
+     p {
+         font-size: 1rem;
+         line-height: 120%;
+     }
+     p.question {
+        font-style: italic;
+     }
+ </style>
+
+<!-- References to linked JS scripts.-->
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+<!-- Code for updating the page dynamically. -->
+
+<script>
+
+    // Lists
+
+    let Purpose = [
+        `You're really not sure. You can't remember much about your past life, shrouded in the mists of lost memory.`,
+        `You're really not sure. Your memories are all jumbled, like you're remembering events lived by different people.`,
+        `You were discarded as an abomination at birth, but somehow managed to survive. Now you're here, as no one else will take you in.`,
+        `You were discarded as an abomination at birth, but somehow managed to survive. Now you're here, as no one else will take you in.`,
+        `You were believed to be an accursed child and left to die in the wild, but somehow managed to survive. Now you're here, as no one else will take you in.`,
+        `You were believed to be an accursed child and left to die in the wild, but somehow managed to survive. Now you're here, as no one else will take you in.`,
+        `You used to be a servant, but your masters were killed by highwaymen just down the road--or so you say... Now you're here, with no status in society.`,
+        `You used to be a servant, but your masters were killed by highwaymen just down the road--or so you say... Now you're here, with no status in society.`,
+        `You used to be a servant, but your masters were killed by highwaymen just down the road--or so you say... Now you're here, with no status in society.`,
+        `You used to be a slave, but your masters were killed by highwaymen just down the road--or so you say... Now you're here, with no status in society.`,
+        `You used to be a slave, but your masters were killed by highwaymen just down the road--or so you say... Now you're here, with no status in society.`,
+        `This is penal service for you, your sentence for your crimes.`,
+        `This is penal service for you, your sentence for your crimes.`,
+        `This is penal service for you, your sentence for your crimes.`,
+        `You killed someone, so you had to flee your home and ended up here.`,
+        `You killed someone, so you had to flee your home and ended up here.`,
+        `You killed someone, so you had to flee your home and ended up here.`,
+        `You're an infantry deserter (and probably wanted for trial).`,
+        `You're an infantry deserter (and probably wanted for trial).`,
+        `You're an infantry deserter (and probably wanted for trial).`,
+        `You're an infantry deserter (and probably wanted for trial).`,
+        `You're an infantry deserter (and probably wanted for trial).`,
+        `You're a failed priest or priestess. Did you fail because of a lack of ability, or because you couldn't stick to your vows?`,
+        `You're a failed priest or priestess. Did you fail because of a lack of ability, or because you couldn't stick to your vows?`,
+        `You're a failed monk or nun. Did you fail because of a lack of ability, or because you couldn't stick to your vows?`,
+        `You're a failed monk or nun. Did you fail because of a lack of ability, or because you couldn't stick to your vows?`,
+        `You've just escaped from an asylum. Society used to call you a "lunatic". Now you might have a chance to fit right in, for the first time.`,
+        `You've just escaped from an asylum. Society used to call you a "lunatic". Now you might have a chance to fit right in, for the first time.`,
+        `You've just escaped from an asylum. Society used to call you a "lunatic". Now you might have a chance to fit right in, for the first time.`,
+        `You dream of living it large, gold coins falling through your hands. Someone said you could get really rich, really fast this way (oh, yes!), and you believed them.`,
+        `You dream of living it large, gold coins falling through your hands. Someone said you could get really rich, really fast this way (oh, yes!), and you believed them.`,
+        `You dream of living it large, gold coins falling through your hands. Someone said you could get really rich, really fast this way (oh, yes!), and you believed them.`,
+        `You dream of living it large, gold coins falling through your hands. Someone said you could get really rich, really fast this way (oh, yes!), and you believed them.`,
+        `You're a stranger to this place: lost in a storm, your ship crashed on these shores not long ago. Now you have no way to get home.`,
+        `You're a foreigner from a distant land: lost in a storm, your ship crashed on these shores not long ago. Now you have no way to get home.`,
+        `You are a barbarian prince or princess, heir to a proud but waning heritage.`,
+        `You're an assistant to an Imperial occult researcher, sent here on a quest to collect data for the Imperial Library. You've got an official letter of proof and a sketchbook.`,
+        `You're an assistant to an Imperial occult researcher, sent here on a quest to collect data for the Imperial Library. You've got an official letter of proof and a sketchbook.`,
+        `You're an exiled noble, trying to regain your honour.`,
+        `You're heir to a major throne, on a quest to prove yourself before you return home to claim it.`
+    ]
+
+    let Knowhow = [
+        `Nothing. You're completely, utterly useless. You don't even know how to cook, fish, or mend clothes.`,
+        `Nothing. You're completely, utterly useless. You don't even know how to cook, fish, or mend clothes.`,
+        `Nothing. You're completely, utterly useless. You don't even know how to cook, fish, or mend clothes.`,
+        `Nothing. You're completely, utterly useless. You don't even know how to cook, fish, or mend clothes.`,
+        `Nothing of much value to anyone: you've been a lazy fool all your life.`,
+        `Nothing of much value to anyone: you've been a lazy fool all your life.`,
+        `Nothing of much value to anyone: you've been a lazy fool all your life.`,
+        `You're a barbarian or nomad, a foreigner to civilization; you can identify most common plants and their uses.`,
+        `You're a barbarian or nomad, a foreigner to civilization; you can identify most common plants and their uses.`,
+        `You're a barbarian or nomad, a foreigner to civilization; you can identify most common plants and their uses.`,
+        `You used to be a locksmith (or so you claim!). You've got a set of lockpicks and you know how to use them.`,
+        `You used to be a locksmith (or so you claim!). You've got a set of lockpicks and you know how to use them.`,
+        `You used to be a locksmith (or so you claim!). You've got a set of lockpicks and you know how to use them.`,
+        `You used to be a locksmith (or so you claim!). You've got a set of lockpicks and you know how to use them.`,
+        `You were once an assistant to a healer. You know a bit about mending broken bones, poultices, poisons, and you carry a good selection of medical implements with you.`,
+        `You were once an assistant to a healer. You know a bit about mending broken bones, poultices, poisons, and you carry a good selection of medical implements with you.`,
+        `You were once an assistant to a healer. You know a bit about mending broken bones, poultices, poisons, and you carry a good selection of medical implements with you.`,
+        `You worked for a merchant, who dealt in spices, fabrics, and ointments. You can assess the value of most common things accurately.`,
+        `You worked for a merchant, who peddled stories, texts, and rumours. You can assess the value of most common things accurately.`,
+        `You worked for a merchant, who bought and sold fish, furs, and salt. You can assess the value of most common things accurately.`,
+        `You worked for a merchant, who sold wine, glass, jewelry, and other luxury goods. You can assess the value of most common things accurately.`,
+        'You once created an artwork, or wrote a book, which has since taken on a life of its own.',
+        'You once created an artwork, or wrote a book, which has since taken on a life of its own.',
+        `You have strong faith and a holy symbol of some sort. (Roll Wisdom or Charisma should this ever come up in play. Maybe that symbol can keep evil spirits away?)`,
+        `You have strong faith and a holy symbol of some sort. (Roll Wisdom or Charisma should this ever come up in play. Maybe that symbol can keep evil spirits away?)`,
+        `You have strong faith and a holy symbol of some sort. (Roll Wisdom or Charisma should this ever come up in play. Maybe that symbol can keep evil spirits away?)`,
+        `You have strong faith and a holy symbol of some sort. (Roll Wisdom or Charisma should this ever come up in play. Maybe that symbol can keep evil spirits away?)`,
+        `You're educated. You can roll the better of Intelligence or Fate to remember various facts about something you studied.`,
+        `You're educated. You can roll the better of Intelligence or Fate to remember various facts about something you studied.`,
+        `You're educated. You can roll the better of Intelligence or Fate to remember various facts about something you studied.`,
+        `You were once an armourer. You can repair weapons, armour, make your own arrows, and judge the quality and make of any implements of war you come across.`,
+        `You were once an armourer. You can repair weapons, armour, make your own arrows, and judge the quality and make of any implements of war you come across.`,
+        `You're trained in the arts of fortune-telling, omens, and simple divination. (Roll Fate or Charisma should this ever come up in play. Omens can be useful guides sometimes...)`,
+        `You're trained in the arts of fortune-telling, omens, and simple divination. (Roll Fate or Charisma should this ever come up in play. Omens can be useful guides sometimes...)`,
+        `You were once a barrister, knowledgeable about the law and respectable society.`,
+        `You were once a barrister, knowledgeable about the law and respectable society.`,
+        `You are a trained scribe and notary, a rare and valuable skill. You carry parchment, quills, and writing ink.`,
+        `You are a trained scribe and notary, a rare and valuable skill.`,
+        `You have training as an engineer: you know a lot about siege weaponry, fortifications, stone-masonry, tunneling, and making maps.`,
+        `You've studied the occult, magical principles, and the lore of monsters and unnatural creatures. You can roll Intelligence to remember useful facts about just about anything occult or supernatural.`
+    ]
+
+    let Friends = [
+        `Oh, lots of folks. Everyone seems to hate your guts, though. Why?`,
+        `Oh, lots of folks. Everyone seems to hate your guts, though. Why?`,
+        `Oh, lots of folks. Everyone seems to hate your guts, though. Why?`,
+        `No one.`,
+        `No one.`,
+        `The town drunk.`,
+        `The town drunk.`,
+        `The village idiot.`,
+        `The village idiot.`,
+        `A local peasant man or woman, though married, is in love with you.`,
+        `A local peasant man or woman, though married, is in love with you.`,
+        `A well-to-do farmer.`,
+        `A farmer whose land has stopped producing, leaving them impoverished.`,
+        `A farmer whose land has stopped producing, leaving them impoverished.`,
+        `A local prostitute.`,
+        `A local prostitute.`,
+        `A local prostitute who considers their work a sacred duty.`,
+        `The local brewer.`,
+        `The local brewer.`,
+        `The innkeeper.`,
+        `The innkeeper.`,
+        `The innkeeper's son or daughter.`,
+        `The blacksmith.`,
+        `The blacksmith.`,
+        `The blacksmith's apprentice.`,
+        `The local healer.`,
+        `The local healer.`,
+        `The local medicine man or woman.`,
+        `The most notable local religious figure: a priest, priestess, shaman, prophet, or oracle.`,
+        `The most notable local religious figure: a priest, priestess, shaman, prophet, or oracle.`,
+        `The local priest, priestess, prophet, or shaman is your lover.`,
+        `A local bard or entertainer.`,
+        `A local bard or entertainer.`,
+        `A local bard or entertainer is your lover.`,
+        `A well-to-do merchant.`,
+        `A well-to-do merchant, who is in love with you.`,
+        `A local peddler of tricks and curios.`,
+        `A local peddler of tricks and curios.`,
+        `The local Sheriff, Reeve, or Mayor.`,
+        `The local Sheriff, Reeve, or Mayor is your lover.`,
+        `A famous craftsman, craftswoman, or inventor.`,
+        `A local loremaster.`,
+        `The local Lord, Lady or Mayor.`,
+        `The local Lord, Lady or Mayor, who shows a strange interest in you.`,
+        `The local Duke, Duchess, or Baron.`,
+        `A highly-placed member of the Conclave, a mysterious, powerful organization which controls magical knowledge.`
+    ]
+
+    // Generate selections.
+
+    document.getElementById('purpose').innerText = _.sample(Purpose);
+    document.getElementById('knowhow').innerHTML = _.sample(Knowhow);
+    document.getElementById('friends').innerHTML = _.sample(Friends);
+
+    removeNote();
+
+    function removeNote() {
+
+        let note = document.getElementById('friends').innerText;
+
+        if (note == 'No one.') {
+            document.getElementById('note').innerHTML = '';
+        } 
+
+        if (note == 'Oh, lots of folks. Everyone seems to hate your guts, though. Why?') {
+            document.getElementById('note').innerHTML = '';
+        } 
+
+        if (note == 'The local Lord, Lady or Mayor, who shows a strange interest in you.') {
+            document.getElementById('note').innerHTML = '';
+        } 
+    }
+    
+</script>
