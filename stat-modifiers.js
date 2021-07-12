@@ -116,11 +116,11 @@ function conBonuses(con){
         case 3: case 4: case 5: 
             document.getElementById('conCommentary').innerText = 'You are old, frail, or sickly.';
             break;
-        case 6: case 7: case 8:
+        case 6: case 7: case 8: case 9:
             // Your Con die is a d4.
             document.getElementById('hitdice').innerText += ', d4';
             break;
-        case 9: case 10: case 11: case 12: case 13:
+        case 10: case 11: case 12: case 13:
             // Your Con die is a d6.
             document.getElementById('hitdice').innerText += ', d6';
             break;
