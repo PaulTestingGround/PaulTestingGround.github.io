@@ -120,21 +120,17 @@ function conBonuses(con){
             // Your Con die is a d4.
             document.getElementById('hitdice').innerText += ', d4';
             break;
-        case 9: case 10: case 11: case 12: 
+        case 9: case 10: case 11: case 12: case 13:
             // Your Con die is a d6.
             document.getElementById('hitdice').innerText += ', d6';
             break;
-        case 13: case 14: case 15:
+        case 14: case 15: case 16:
             // Your Con die is a d8. 
             document.getElementById('hitdice').innerText += ', d8';   
             break;
-        case 16: case 17:
+        case 17: case 18:
             // Your Con die is a d10.
             document.getElementById('hitdice').innerText += ', d10';
-            break;
-        case 18:
-            // Your Con die is a d12.
-            document.getElementById('hitdice').innerText += ', d12';
             break;
         default:
             document.getElementById('conCommentary').innerText = '';
