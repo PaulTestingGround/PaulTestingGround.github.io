@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8">
+  <title>Random Key Practice</title>
+  <link rel="stylesheet" type="text/css" href="https://edwardtufte.github.io/tufte-css/tufte.css"/>
+ </head>
+
+ <body>
+     <div>
+        <br>
+        <h2>Random Key Practice Helper</h2>
+        <br>
+        <p>This tool helps you run through all twelve keys in a random order.</p>
+        <p id='instruction'>Your starting key is:</p>
+        <h2 id='key'>key</h2>
+        <button id='nextKeyButton' type='button' onclick='nextKey()' value=''>Give me my next key!</button>
+     </div>
+
+ </body>
+
+ <!-- CSS adjustments and formating. -->
+
+ <style>
+     h2 {
+         width: 26em;
+         text-align: center;
+         font-size: 2.5em;
+     }
+     div {
+         max-width: 50em;
+         width: 90%;
+     }
+     p {
+         font-size: 1.5rem;
+         line-height: 120%;
+     }
+
+    /* Buttons */
+
+    button {
+        font-family: et-book, Palatino, sans-serif;
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+ </style>
+
+<!-- References to linked JS scripts.-->
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+<!-- Code for updating the page dynamically. -->
+
+<script>
+
+    // Keys
+
+    let twelveKeys = [
+        `C`,
+        `F`,
+        `Bb`,
+        `Eb`,
+        `Ab`,
+        `Db`,
+        `Gb/F#`,
+        `B`,
+        `E`,
+        `A`,
+        `D`,
+        `G`,
+    ]
+
+    let keyArray = [];
+
+    // Tracker
+
+    let howManyKeysDone = 0;
+
+    // Set starting key:
+
+    function setupPractice() {
+        keyArray = _.shuffle(twelveKeys);
+
+        document.getElementById('key').innerHTML = keyArray[howManyKeysDone];
+
+        howManyKeysDone++;
+
+        console.log('Keys done so far: ' + howManyKeysDone);
+    }
+
+    setupPractice();
+
+    // Function
+
+    function nextKey() {
+
+        document.getElementById('instruction').innerHTML = 'Your next key is:'
+
+        document.getElementById('key').innerHTML = keyArray[howManyKeysDone];
+
+        if (howManyKeysDone == 11) {
+            practiceCompleted();
+        }
+
+        howManyKeysDone++;
+
+        console.log('Keys done so far: ' + howManyKeysDone);
+
+    }
+
+    function practiceCompleted() {
+        
+        document.getElementById('instruction').innerHTML = 'Your final key is:'
+
+        let button = document.getElementById('nextKeyButton');
+
+        button.innerText = 'Congrats! You are done. To start a new session, click here!';
+
+        console.log('COngrats! Your practice is completed.');
+
+        button.onclick = () => { window.location.reload() };
+    }
+    
+    
+</script>
