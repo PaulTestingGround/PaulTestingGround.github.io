@@ -47,7 +47,7 @@ let characterTraits = [
 
 let specialTraits = [
     'Perhaps you are an exiled noble, trying to regain your honour.',
-    'Perhaps you are an exotic foreigner: lost in a storm, your ship wrecked upon these shores.',
+    'Perhaps you are a stranger from a strange land: lost in a storm, your ship wrecked upon these shores, leaving you stranded here for good.',
     'Perhaps you were an assistant to an Imperial researcher, sent here on a quest to collect data for the Imperial Library; if so, you might carry a letter of proof and a leatherskin sketchbook.',
     'Perhaps you are the heir to a major throne, on a quest to prove yourself before you return home to claim it.',
     'Perhaps you are a barbarian prince or princess, far from home, heir to a proud but waning heritage.',
@@ -76,6 +76,7 @@ let basicEquipment = [
     // Extras
     'a mask (plain, somber, or decorative)',
     'a warm, thick cloak',
+    'a set of iron spikes (6), each as long as your hand',
     // 6
     'a vial of writing ink, quills, and parchment',
     'a whistle',
