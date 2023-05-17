@@ -202,8 +202,10 @@ function chooseBackground(backgroundtype) {
             // New description replaces instruction text.
             document.getElementById('backgrounddetails').innerHTML = "Scoundrel: perhaps you were a street urchin, a criminal, or a mendicant. " +
                 "You are perfectly at ease on dark streets, in the company of thieves, or even in the fabled flesh markets of Khazangol. You know how to " +
-                "locate contacts, find a fence, and identify gang territory. You are also skilled in misdirection, able to create opportunities " +
-                "to make items disappear or to pick someone's pockets. You start with a set of lockpicks and a knife in your boot. <br><br>";
+                "locate contacts, find a fence, and identify gang territory. You start with a set of lockpicks and a knife in your boot. " +
+                "You're also often lucky when it matters most: your Fate is one point higher (included below). <br><br>";
+            // Adjust Fate value.
+            adjustSomething('fate', 1);
             // Additional equipment.
             addEquipment('a set of lockpicks (skeleton keys, rake pick, torsion wrench)', 'right');
             addEquipment('a knife in your boot', 'right');
