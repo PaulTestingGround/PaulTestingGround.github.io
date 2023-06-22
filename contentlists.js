@@ -203,7 +203,7 @@ let missileWeapons = [
     'a brace of throwing knives (5)',
     'a pair of throwing axes',
     'a sling and stones',
-    'a Mongol (mounted archer\'s) bow',
+    'a Mongol (horse archer\'s) bow',
     'a composite bow (of horn and sinew)',
 ]
 
