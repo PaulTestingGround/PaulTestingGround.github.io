@@ -176,7 +176,7 @@ let seriousWeapons = {
         'a war club',
         'a length of weighted chain, spiked',
         'a poleaxe',
-        'an executioner's axe',
+        'an executioner\'s axe',
     ],
     'others' : [
         'a heavy flail',
