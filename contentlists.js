@@ -150,7 +150,6 @@ let basicWeapons = [
     'a whip or scourge',
     'a wooden club',
     'a farmer\'s flail',
-    'a hammer',
     'a hatchet',
     'a hunter\'s bow (and a dozen arrows)',
     'a pitchfork',
@@ -199,11 +198,12 @@ let missileWeapons = [
     'a crossbow',
     'a heavy crossbow',
     'a trio of javelins',
-    'a longbow',
+    'a longbow, tall as a man',
     'a recurved bow',
     'a brace of throwing knives (5)',
     'a pair of throwing axes',
-    'a sling and stones'
+    'a sling and stones',
+    'a Mongol (mounted archer\'s) bow',
 ]
 
 let elegantWeapons = [
