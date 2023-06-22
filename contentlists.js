@@ -123,7 +123,7 @@ let basicEquipment = [
 
 let ethericFormulae = [
     'A Demonic Covenant',
-    'Shalmanisar's Corporeal Diminution',
+    'Shalmanisar\'s Corporeal Diminution',
     'The Apotropaic Barrier',
     'Otiluke\'s Bewitchment',
     'A Chariot of Air',
