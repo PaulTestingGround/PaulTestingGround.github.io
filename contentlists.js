@@ -123,6 +123,8 @@ let basicEquipment = [
 
 let ethericFormulae = [
     'A Demonic Covenant',
+    'Shalmanisar's Corporeal Diminution',
+    'The Apotropaic Barrier',
     'Otiluke\'s Bewitchment',
     'A Chariot of Air',
     'Obsecration',
@@ -136,7 +138,8 @@ let flawedFormulae = [
     'Gaze of Fascination (Unruly)',
     'The Assassin\'s Numen (Flawed)',
     'Soul Transference (Tainted)',
-    'Creeping Remnants (Tainted)'
+    'Creeping Remnants (Tainted)',
+    'The Umbrant Immolation of Maerlish (Unruly)',
 ]
 
 let basicWeapons = [
@@ -173,6 +176,7 @@ let seriousWeapons = {
         'a war club',
         'a length of weighted chain, spiked',
         'a poleaxe',
+        'an executioner's axe',
     ],
     'others' : [
         'a heavy flail',
