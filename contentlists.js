@@ -204,6 +204,7 @@ let missileWeapons = [
     'a pair of throwing axes',
     'a sling and stones',
     'a Mongol (mounted archer\'s) bow',
+    'a composite bow (of horn and sinew)',
 ]
 
 let elegantWeapons = [
