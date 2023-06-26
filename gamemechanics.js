@@ -55,6 +55,11 @@ function determineTotalFeatureDice(featureDice, statsTotal) {
     if (currentTotal < 75) {
         addaFeatureDie();
     }
+
+    if (currentTotal < 66.3) {
+        addaFeatureDie();
+        console.log("Added an extra Feature for a boring character. Try to be more interesting!");
+    }
 }
 
 function addaFeatureDie() {
