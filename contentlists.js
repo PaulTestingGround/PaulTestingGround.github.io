@@ -131,6 +131,7 @@ let ethericFormulae = [
     'A Subterranean Torrent',
     'Plasmic Manipulation',
     'An Ethereal Boundary',
+    'The Final Rite of the Autarch and the Wretch',
 ]
 
 let flawedFormulae = [
