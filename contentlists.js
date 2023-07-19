@@ -122,7 +122,6 @@ let basicEquipment = [
 ]
 
 let ethericFormulae = [
-    'A Demonic Covenant',
     'Shalmanisar\'s Corporeal Diminution',
     'The Apotropaic Barrier',
     'Otiluke\'s Bewitchment',
@@ -141,6 +140,7 @@ let flawedFormulae = [
     'Soul Transference (Tainted)',
     'Creeping Remnants (Tainted)',
     'The Umbrant Immolation of Maerlish (Unruly)',
+    'A Demonic Covenant (Flawed)',
 ]
 
 let basicWeapons = [
