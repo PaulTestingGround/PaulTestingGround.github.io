@@ -125,7 +125,7 @@ let ethericFormulae = [
     'Shalmanisar\'s Corporeal Diminution',
     'The Apotropaic Barrier',
     'Otiluke\'s Bewitchment',
-    'The Wailing Chariot of Pneuma',
+    'The Forlorn Chariot of Pneuma',
     'Obsecration',
     'A Subterranean Torrent',
     'Plasmic Manipulation',
