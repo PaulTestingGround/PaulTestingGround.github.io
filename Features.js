@@ -160,7 +160,7 @@ let expertiseFeatures = [
         addFeatureText('Crafty and clever: you were once apprenticed to a locksmith or inventor, or so you claim. Given enough time and the right tools, you can open any lock, and fix (or disable) most mechanical devices.');
     },
     function() {
-        addFeatureText('You are a former priest: you know prayers and holy words, and carry a holy symbol. With a Wisdom or Charisma check, you may bring holy influence to bear through your faith or its articles.');
+        addFeatureText('You are a former priest, failed monk/nun, or cultist: you know prayers and sacred words, and carry a holy symbol. With a Wisdom or Charisma check, you may bring holy influence to bear through your faith or its articles.');
         addEquipment('your holy symbol');
     },
     function() {
@@ -354,9 +354,9 @@ let weirdFeatures = [
     },
     function() {
         if (int < 9) {
-            addFeatureText(`You carry a heavy scroll case containing the ritual instructions for an arcane etheric formula. Someone showed you how to follow the instructions therein.`);
+            addFeatureText(`You carry a heavy scroll case containing the instructions for an arcane etheric formula. Someone showed you how to follow the instructions therein.`);
         } else {
-            addFeatureText(`You carry a heavy scroll case containing the ritual instructions for an arcane etheric formula.`);
+            addFeatureText(`You carry a heavy scroll case containing the instructions for an arcane etheric formula.`);
         }
         howManyFormulae += 1;
         addEquipment('a heavy scroll case, inscribed with runes');
