@@ -302,7 +302,7 @@ let godsSmileFeatures = [
         console.log('Increased Fate by two for being the last survivor of your family line.');
     },
     function() {
-        addFeatureText(`You seem to heal much faster than those around you. Roll Constitution after any fight for a chance to regain 1 hit point. (+1 Fate, included below)`);
+        addFeatureText(`You seem to heal much faster than those around you. When you take a turn to rest after suffering an injury, roll Constitution for a chance to regain 1 hit point. (+1 Fate, included below)`);
         adjustSomething('fate', 1);
         console.log('Increased Fate by one for fast healing.');
     },
