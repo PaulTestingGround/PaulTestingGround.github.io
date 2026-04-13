@@ -124,13 +124,17 @@ function conBonuses(con){
             // Your Con die is a d6.
             document.getElementById('hitdice').innerText += ', d6';
             break;
-        case 14: case 15: case 16:
+        case 14: case 15:
             // Your Con die is a d8. 
             document.getElementById('hitdice').innerText += ', d8';   
             break;
-        case 17: case 18:
-            // Your Con die is a d10.
-            document.getElementById('hitdice').innerText += ', d10';
+        case 16: case 17:
+            // Your Con dice are d6 and d8.
+            document.getElementById('hitdice').innerText += ', d6, d8';
+            break;
+        case 18: 
+            // Your Con dice are a d6 and two d8s.
+            document.getElementById('hitdice').innerText += ', d6, d8, d8';
             break;
         default:
             document.getElementById('conCommentary').innerText = '';
